@@ -1,0 +1,38 @@
+{
+  "name": "ziptag",
+  "version": "1.0.0",
+  "description": "Source code for Ziptag REST API",
+  "main": "server.js",
+  "scripts": {
+    "start": "npm install && gulp uat && node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Biswaranjan Rout",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.2",
+    "bower": "^1.8.0",
+    "ejs": "^2.5.7",
+    "email-validator": "^1.1.1",
+    "express": "^4.15.3",
+    "jsonwebtoken": "^7.4.1",
+    "mongoose": "^4.11.3",
+    "morgan": "^1.8.2",
+    "nodemailer": "^4.0.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "require-all": "^2.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.2",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-util": "^3.0.8",
+    "less": "^2.7.2",
+    "less-watch-compiler": "^1.6.7",
+    "run-sequence": "^2.1.0"
+  }
+}
