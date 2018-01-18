@@ -48,8 +48,24 @@ gulp.task('node-server', function () {
 //     });
 // })
 
-// Default task for development
-gulp.task('default', function() {
-    // Run node server
-    gulp.run('node-server');
+/***************************************************************
+ *  Tasks for Baadi Web Portal
+ **************************************************************/
+// Baadi Web - Compile SASS files
+gulp.task('sass', function () {
+    return gulp.src('./public/baadi-web/src/sass/*.scss')
+      .pipe(sass().on('error', sass.logError))
+      .pipe(gulp.dest('./public/baadi-web/src/assets/css'));
 });
+
+// Baadi Web - Watch SASS folder
+gulp.task('sass:watch', function() {
+    gulp.watch('./public/baadi-web/src/sass/*.scss', ['sass']);
+});
+
+// Baadi Web - Angular CLI compile
+
+/***************************************************************
+ *  Gulp tasks for development
+ **************************************************************/
+gulp.task('default', ['sass', 'sass:watch']);

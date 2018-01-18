@@ -38,7 +38,7 @@
     "jshint": "^2.8.0",
     "less": "^2.7.2",
     "less-watch-compiler": "^1.6.7",
-    "nodemon": "^1.14.11",
+    "nodemon": "<=1.10.0",
     "run-sequence": "^2.1.0"
   }
 }

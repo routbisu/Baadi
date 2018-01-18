@@ -19,17 +19,17 @@ const path          = require('path');
 
 // Get port number
 const port = process.env.PORT || 5000;
-const b = 3;
+const b = 31;
 // Instantiate express
 const app = express();  
 
 // Configure body parser
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-app.use(morgan('dev'));
+app.use(bodyParser.json());;;
+app.use(morgan('dev'));;
 
 // CORS Enable all origins
-app.use(enableCORS);;;
+//app.use(enableCORS);
 
 // Initialize passport for use and configure JWT strategy
 app.use(passport.initialize());
