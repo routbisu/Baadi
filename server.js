@@ -1,7 +1,6 @@
 // =================================================================================
 // Base Setup
 // =================================================================================
-"use strict";
 
 // Node Modules
 const express       = require('express');
@@ -13,16 +12,16 @@ const ejs           = require('ejs');
 const path          = require('path');
 
 // Project Modules
-const enableCORS        = require('./middlewares/enableCORS');
-const router            = require('./routes/routes');
-const passportModule    = require('./middlewares/passportAuth.js')(passport);
-const apiOptions        = require('./middlewares/apiOptions.js');
+// const enableCORS        = require('./middlewares/enableCORS');
+// const router            = require('./routes/routes');
+// const passportModule    = require('./middlewares/passportAuth.js')(passport);
+// const apiOptions        = require('./middlewares/apiOptions.js');
 
 // Get port number
 const port = process.env.PORT || 5000;
-
+const b = 3;
 // Instantiate express
-const app = express();
+const app = express();  
 
 // Configure body parser
 app.use(bodyParser.urlencoded({extended: true}));
@@ -30,7 +29,7 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 // CORS Enable all origins
-app.use(enableCORS);
+app.use(enableCORS);;;
 
 // Initialize passport for use and configure JWT strategy
 app.use(passport.initialize());
@@ -56,11 +55,10 @@ console.log('Ziptag App started on port ' + port);
 // Start the static files server
 // =================================================================================
 const appStatic = express();
-const webPort = process.env.WEBPORT || 4000;
+const webPort = process.env.WEBPORT || 4000;   
 appStatic.use('/', express.static(path.join(__dirname, 'public/admin/dist/')))
 appStatic.listen(webPort);
 console.log('Ziptag Webapp started on port ' + webPort);
-
 /**
  * Configure express to serve static html pages inside of your public folder
  */
