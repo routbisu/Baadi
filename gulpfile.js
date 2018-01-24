@@ -2,19 +2,13 @@ let gulp = require('gulp');
 let gutil = require('gulp-util');
 let nodemon = require('gulp-nodemon');
 let spawn = require('child_process').spawn;
+let exec = require('child_process').exec;
 let sass = require('gulp-sass');
-let jshint = require('gulp-jshint');
 let node;
 
 const gulpConfig = {
     nodeServerEntry: 'server.js'
 }
-
-// Task for JSLint
-gulp.task('lint', function () {
-    gulp.src('./**/*.js')
-        .pipe(jshint())
-})
 
 // Task for starting node server
 gulp.task('node-server', function () {
@@ -52,20 +46,41 @@ gulp.task('node-server', function () {
  *  Tasks for Baadi Web Portal
  **************************************************************/
 // Baadi Web - Compile SASS files
-gulp.task('sass', function () {
+gulp.task('websass', function () {
     return gulp.src('./public/baadi-web/src/sass/*.scss')
       .pipe(sass().on('error', sass.logError))
       .pipe(gulp.dest('./public/baadi-web/src/assets/css'));
 });
 
 // Baadi Web - Watch SASS folder
-gulp.task('sass:watch', function() {
+gulp.task('websass:watch', function() {
     gulp.watch('./public/baadi-web/src/sass/*.scss', ['sass']);
 });
 
 // Baadi Web - Angular CLI compile
+gulp.task('webng', function(cb) {
+    exec('ng serve ./public/baadi-web/.angular-cli.json -o', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    });
+});
 
 /***************************************************************
  *  Gulp tasks for development
  **************************************************************/
-gulp.task('default', ['sass', 'sass:watch']);
+
+ // Default task - Run NodeAPI, Web Portal, Admin Portal
+gulp.task('serve', ['websass', 'websass:watch', 'webng']);
+
+// Default task - Run NodeAPI only
+gulp.task('serve:api', ['']);
+
+// Default task - Run Web Portal Only
+gulp.task('serve:web', ['websass', 'websass:watch']);
+
+// Default task - Run Web Portal and NodeAPI
+gulp.task('serve:api:web', ['']);
+
+// Default task - Run Admin Portal and NodeAPI
+gulp.task('serve:api:admin', ['']);

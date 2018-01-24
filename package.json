@@ -24,6 +24,7 @@
     "require-all": "^2.2.0"
   },
   "devDependencies": {
+    "@angular/cli": "^1.6.4",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-bower": "0.0.14",
