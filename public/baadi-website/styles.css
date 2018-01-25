@@ -203,7 +203,41 @@ body {
   }
 }
 
+.app-store-badge {
+  width: 120px;
+}
+
 /* Media queries for tablets/desktops */
+@media (max-width:991px) {
+  .display-4 {
+    font-size: 3rem !important;
+  }
+
+  .display-3 {
+    font-size: 1.1rem !important;
+  }
+
+  .app-store-badge {
+    width: 115px !important;
+  }
+}
+
+.app-badges-fixed {
+  padding-top: 20px;
+}
+
+.app-badges-fixed img {
+  width: 145px;
+}
+
+.app-badges-top {
+
+}
+
+.app-badges-top img {
+  width: 140px;
+}
+
 @media (min-width:768px) {
   .display-4 {
   	font-size: 3.2rem;
@@ -211,6 +245,10 @@ body {
 
   .display-3 {
     font-size: 1.4rem;
+  }
+
+  .app-store-badge {
+    width: 150px;
   }
 
   .bg-white-transparent {
@@ -229,5 +267,15 @@ body {
 
   .contact-box {
     padding-top: 65px;
+  }
+
+  .app-badges-fixed {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
+
+  .app-badges-fixed img {
+    width: 140px;
   }
 }
