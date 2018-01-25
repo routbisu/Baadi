@@ -4,12 +4,27 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+body {
+  background: url('images/background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.primary-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .red-border {
   border: 1px solid red !important;
 }
 
 .navbar {
-  box-shadow: 1px 1px 15px #666;
+  box-shadow: 1px 1px 10px #666;
   background: #FFF;
   opacity: 0.95;
 }
@@ -37,22 +52,6 @@
   border-radius: 0px;
   border: 1px solid #F1F1F1;
   padding: 0.5rem 0 0 0;
-}
-
-#showcase {
-  background: url('images/background.jpg');
-  background-repeat:no-repeat;
-  min-height: 580px;
-  position: relative;
-}
-
-#showcase .primary-overlay {
-  background: rgba(0, 0, 0, 0.1);
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 100%;
-  height: 89%;
 }
 
 .display-4 {
@@ -85,9 +84,39 @@
 
 .btn-app-download {
   display: inline-block;
-  width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #BBB;
 }
 
+.btn-app-download:hover {
+  border: 1px solid #888;
+  transition: 0.3s;
+}
+
+.google {
+}
+
+.apple {
+  padding: 4px 10px;
+}
+
+.app-download-text {
+  font-size: 0.9rem;
+}
+
+.text-bold {
+  font-weight: 600;
+  color:#2B61A3;
+}
+
+.bg-white-transparent {
+  background: #FFF;
+  opacity: 0.85;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
 
 /* Media queries for tablets/desktops */
 @media (min-width:768px) {
@@ -97,5 +126,9 @@
 
   .display-3 {
     font-size: 1.4rem;
+  }
+
+  .bg-white-transparent {
+    margin-top: 0px;
   }
 }
