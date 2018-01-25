@@ -6,7 +6,6 @@
 
 body {
   background: url('images/background.jpg');
-  background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
@@ -26,7 +25,6 @@ body {
 .navbar {
   box-shadow: 1px 1px 10px #666;
   background: #FFF;
-  opacity: 0.95;
 }
 
 .navbar .nav-item {
@@ -113,9 +111,46 @@ body {
 
 .bg-white-transparent {
   background: #FFF;
-  opacity: 0.85;
+  opacity: 0.92;
   font-size: 0.9rem;
   margin-top: 20px;
+}
+
+.card-feature {
+  margin: 5px 0px;
+  padding: 5px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.card-feature i.fa {
+  font-size: 60px;
+  margin: 5px 0px;
+}
+
+.card-feature:hover {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card-feature-orange {
+  color: #F04F3A;
+  border: 1px solid #F9D1CC;
+}
+
+.card-feature-orange:hover {
+  background: #F04F3A;
+  color: #FFF;
+}
+
+.card-feature-blue {
+  color: #1F4477;
+  border: 1px solid #BACFED;
+}
+
+.card-feature-blue:hover {
+  background: #1F4477;
+  color: #FFF;
 }
 
 /* Media queries for tablets/desktops */
@@ -130,5 +165,15 @@ body {
 
   .bg-white-transparent {
     margin-top: 0px;
+  }
+
+  .card-feature {
+    font-size: 0.8rem;
+    height: 150px;
+    padding: 13px 0px;
+  }
+
+  .card-feature i.fa {
+    margin: 15px 0px;
   }
 }
