@@ -238,6 +238,17 @@ body {
   width: 140px;
 }
 
+.card-feature {
+  font-size: 0.75rem;
+  height: 140px;
+  margin: 5px;
+  padding-top: 8px;
+}
+
+.card-feature i.fa {
+  margin: 15px 0px;
+}
+
 @media (min-width:768px) {
   .display-4 {
   	font-size: 3.2rem;
