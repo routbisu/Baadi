@@ -1,0 +1,101 @@
+/* Primary Color: #F04F3A */
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.red-border {
+  border: 1px solid red !important;
+}
+
+.navbar {
+  box-shadow: 1px 1px 15px #666;
+  background: #FFF;
+  opacity: 0.95;
+}
+
+.navbar .nav-item {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.dropdown-item {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.5rem;
+}
+
+.dropdown-item:hover {
+  background: #F1F1F1;
+  transition: 0.3s;
+}
+
+.dropdown-item i.fa {
+  margin-right: 0.5rem;
+}
+
+.dropdown-menu.show {
+  border-radius: 0px;
+  border: 1px solid #F1F1F1;
+  padding: 0.5rem 0 0 0;
+}
+
+#showcase {
+  background: url('images/background.jpg');
+  background-repeat:no-repeat;
+  min-height: 580px;
+  position: relative;
+}
+
+#showcase .primary-overlay {
+  background: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 89%;
+}
+
+.display-4 {
+	font-size: 2rem;
+}
+
+.text-light-grey {
+  color: #EEE;
+}
+
+.opacity-90 {
+  opacity: 0.9;
+}
+
+.opacity-85 {
+  opacity: 0.85;
+}
+
+.opacity-80 {
+  opacity: 0.85;
+}
+
+.display-3 {
+  font-size: 1rem;
+}
+
+.border-none {
+  border: none;
+}
+
+.btn-app-download {
+  display: inline-block;
+  width: 100px;
+}
+
+
+/* Media queries for tablets/desktops */
+@media (min-width:768px) {
+  .display-4 {
+  	font-size: 3.2rem;
+  }
+
+  .display-3 {
+    font-size: 1.4rem;
+  }
+}
