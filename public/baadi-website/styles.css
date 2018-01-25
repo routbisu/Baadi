@@ -18,6 +18,10 @@ body {
   height: 100%;
 }
 
+.btn {
+  cursor: pointer;
+}
+
 .red-border {
   border: 1px solid red !important;
 }
@@ -116,6 +120,14 @@ body {
   margin-top: 20px;
 }
 
+.bg-blue-transparent {
+  background: #284971;
+  color: #FFF;
+  opacity: 0.92;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
 .card-feature {
   margin: 5px 0px;
   padding: 5px;
@@ -153,6 +165,44 @@ body {
   color: #FFF;
 }
 
+.contact-box {
+  padding-top: 15px;
+}
+
+.contact-box p.contact-item {
+  font-size: 0.8rem;
+  margin: 7px 0px;
+}
+
+.contact-box p.contact-item > a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.contact-box p.contact-item i.fa {
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+.contact-box p.contact-item i.fa-envelope {
+  font-size: 12px;
+}
+
+.no-padding {
+  padding: 3px !important;
+}
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  & > [class^="col-"],
+  & > [class*=" col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
 /* Media queries for tablets/desktops */
 @media (min-width:768px) {
   .display-4 {
@@ -175,5 +225,9 @@ body {
 
   .card-feature i.fa {
     margin: 15px 0px;
+  }
+
+  .contact-box {
+    padding-top: 65px;
   }
 }
