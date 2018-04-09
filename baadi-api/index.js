@@ -11,50 +11,43 @@ const ejs            = require('ejs');
 const path           = require('path');
 
 // Project Modules
+const appConfig      = require('./app-config');
 const mainRouter     = require('./routes/main-routes');
 const enableCORS     = require('./middlewares/enable-cors');
 const passportModule = require('./middlewares/passport-auth')(passport);
 // const apiOptions     = require('./middlewares/apiOptions.js');
 
 // Get port number
-// const port = process.env.PORT || 5000;
+const port = process.env.PORT || appConfig.SERVER_PORT;
 
-// // Instantiate express
-// const app = express();
+// Instantiate express
+const app = express();
 
-// // Configure body parser
-// app.use(bodyParser.urlencoded({extended: true}));
-// app.use(bodyParser.json());
-// app.use(morgan('dev'));
+// Configure body parser
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(morgan('dev'));
 
-// // CORS Enable all origins
-// app.use(enableCORS);
+// CORS Enable all origins
+app.use(enableCORS);
 
-// // Initialize passport for use and configure JWT strategy
-// app.use(passport.initialize());
+// Initialize passport for use and configure JWT strategy
+app.use(passport.initialize());
 
-// // Instantiate all controllers
-// requireAll({
-//     dirname: __dirname + '/controllers',
-//     filter:  /(.+controller)\.js$/,
-//     recursive: false
-// });
+// Instantiate all controllers
+requireAll({
+    dirname: __dirname + '/controllers',
+    filter:  /(.+controller)\.js$/,
+    recursive: false
+});
 
 // app.use(apiOptions);
 
-// // Register the API routes
-// // All of the routes must be prefixed with /api
-// app.use('/api', router);
+// Register the API routes
+// All of the routes must be prefixed with /api
+app.use('/api', mainRouter);
 
-// // Start the API Server
-// // =================================================================================
-// app.listen(port);
-// console.log('Ziptag App started on port ' + port);
-
-// // Start the static files server
-// // =================================================================================
-// const appStatic = express();
-// const webPort = process.env.WEBPORT || 4000;
-// appStatic.use('/', express.static(path.join(__dirname, 'public/admin/dist/')))
-// appStatic.listen(webPort);
-// console.log('Ziptag Webapp started on port ' + webPort);
+// Start the API Server
+// =================================================================================
+app.listen(port);
+console.log('Baadi API started at port ' + port);

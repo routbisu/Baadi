@@ -20,16 +20,20 @@ const googleAuth = {
 }
 
 // DB Connection String
-const dbConnString = 'mongodb://admin:admin@ds143532.mlab.com:43532/ziptag';
+const dbConnString = 'mongodb://root:Baadi%402018@ds247317.mlab.com:47317/baadi';
 
 // Passport Secret
 const passportSecret = 'LifeAfterYou';
+
+// Server Port 
+const serverPort = 5000;
 
 const appConfig = {
     DB_CONNECTION_STRING: dbConnString,
     EMAIL_CONFIG: emailConfig,
     GOOGLE_AUTH: googleAuth,
-    PASSPORT_SECRET: passportSecret
+    PASSPORT_SECRET: passportSecret,
+    SERVER_PORT: serverPort
 }
 
 module.exports = appConfig;

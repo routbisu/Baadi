@@ -5,11 +5,14 @@
 const bcrypt = require('bcrypt');
 
 // Get instance of mongoose connection
-const mongoose = require('../config/init/db');
+const mongoose = require('../services/db-connection').MONGOOSE;
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    first_name: String,
+    first_name: { 
+        type: String, 
+        required: true 
+    },
     last_name: String,
     email_id: {
         type: String,
@@ -17,8 +20,7 @@ const UserSchema = new Schema({
         unique: true,
         required: true
     },
-    contact: String,
-    city: String,
+    phone: String,
     password: {
         type: String,
         required: true
