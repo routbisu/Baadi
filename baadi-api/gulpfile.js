@@ -1,4 +1,5 @@
 const gulp = require("gulp");
+const watch = require('gulp-watch');
 const runSequence = require('run-sequence');
 const exec = require('child_process').exec;
 const spawn = require('child_process').spawn;
@@ -29,11 +30,15 @@ gulp.task('remove-dist', function() {
 
 // Default task - rm rf, compile and serve
 gulp.task('default', function() {
-    return runSequence('remove-dist', 'compile-start-server');
+    runSequence('remove-dist', 'compile-start-server');
+    return watch(['**/*.js', '!node_modules/**', '!dist/**'], function() {
+        console.log('Detected changes.');
+        return runSequence('remove-dist', 'compile-start-server');
+    });
 });
 
 // Run tasks when changes are detected
-gulp.watch(['**/*.js', '!node_modules/**', '!dist/**'], ['default']);
+//gulp.watch(['**/*.js', '!node_modules/**', '!dist/**'], ['default']);
 
 // Gulp build task
 gulp.task('build', function() {
@@ -66,9 +71,12 @@ function compile(startServer) {
             return;
         }
 
-        console.log('ES6 compiled successfully');
+        console.log('ES6 compiled successfully.');
 
-        if (nodeInstance) nodeInstance.kill();
+        if (nodeInstance) {
+            nodeInstance.kill();
+            console.log('Node server stopped.');
+        }
 
         if(startServer) {            
             nodeInstance = spawn('node', ['dist/index.js'], {stdio: 'inherit'});
@@ -77,6 +85,7 @@ function compile(startServer) {
                   gulp.log('Error detected, waiting for changes...');
                 }
             });
+            console.log('Node server started.');
         } else {
             process.exit();
         }
