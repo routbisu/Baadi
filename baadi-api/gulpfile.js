@@ -1,15 +1,21 @@
 const gulp = require("gulp");
 const runSequence = require('run-sequence');
 const exec = require('child_process').exec;
+const spawn = require('child_process').spawn;
 const rimraf = require('rimraf');
+let nodeInstance;
 
 // Compile ES6 code using Babel, move to dist folder & Run node server
 const babelCmd = 'babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files';
-gulp.task('compile-es6', function() {
+
+gulp.task('compile', function() {
     process.chdir(__dirname);
-    exec(babelCmd, function() {
-        exec('node dist/index.js', showErrors);
-    });
+    compile();
+});
+
+gulp.task('compile-start-server', function() {
+    process.chdir(__dirname);
+    compile(true);
 });
 
 // Delete (rm -rf) the dist/ folder
@@ -23,19 +29,56 @@ gulp.task('remove-dist', function() {
 
 // Default task - rm rf, compile and serve
 gulp.task('default', function() {
-    return runSequence('remove-dist', 'compile-es6');
+    return runSequence('remove-dist', 'compile-start-server');
 });
 
 // Run tasks when changes are detected
 gulp.watch(['**/*.js', '!node_modules/**', '!dist/**'], ['default']);
 
+// Gulp build task
+gulp.task('build', function() {
+    return runSequence('remove-dist', 'compile');
+});
 
+// ********************************************************
+// Common functions
+// ********************************************************
 /**
- * Common functions
+ * Show errors in console
+ * @param {*} err 
+ * @param {*} stdout 
+ * @param {*} stderr 
  */
-// Show errors in console
 function showErrors(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     console.log(err);
+}
+
+/**
+ * Compile ES6 and start node server
+ * @param {*} startServer : Start node server (Optional)
+ */
+function compile(startServer) {
+    exec(babelCmd, function(err) {
+        if(err) {
+            console.log('Error in ES6 compilation', err);
+            return;
+        }
+
+        console.log('ES6 compiled successfully');
+
+        if (nodeInstance) nodeInstance.kill();
+
+        if(startServer) {            
+            nodeInstance = spawn('node', ['dist/index.js'], {stdio: 'inherit'});
+            nodeInstance.on('close', function (code) {
+                if (code === 8) {
+                  gulp.log('Error detected, waiting for changes...');
+                }
+            });
+        } else {
+            process.exit();
+        }
+    });
 }
