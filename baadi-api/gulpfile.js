@@ -8,10 +8,16 @@ let nodeInstance;
 
 // Compile ES6 code using Babel, move to dist folder & Run node server
 const babelCmd = 'babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files';
+const babelCmdProd = 'babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,app-config.js --copy-files';
 
 gulp.task('compile', function() {
     process.chdir(__dirname);
     compile();
+});
+
+gulp.task('compile-prod', function() {
+    process.chdir(__dirname);
+    compile(false, true);
 });
 
 gulp.task('compile-start-server', function() {
@@ -38,11 +44,16 @@ gulp.task('default', function() {
 });
 
 // Run tasks when changes are detected
-//gulp.watch(['**/*.js', '!node_modules/**', '!dist/**'], ['default']);
+// gulp.watch(['**/*.js', '!node_modules/**', '!dist/**'], ['default']);
 
 // Gulp build task
 gulp.task('build', function() {
     return runSequence('remove-dist', 'compile');
+});
+
+// Gulp build for production
+gulp.task('build-prod', function() {
+    return runSequence('remove-dist', 'compile-prod');
 });
 
 // ********************************************************
@@ -64,8 +75,9 @@ function showErrors(err, stdout, stderr) {
  * Compile ES6 and start node server
  * @param {*} startServer : Start node server (Optional)
  */
-function compile(startServer) {
-    exec(babelCmd, function(err) {
+function compile(startServer, prod) {
+
+    exec(prod ? babelCmdProd : babelCmd, function(err) {
         if(err) {
             console.log('Error in ES6 compilation', err);
             return;
