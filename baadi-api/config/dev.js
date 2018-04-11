@@ -28,12 +28,32 @@ const passportSecret = 'LifeAfterYou';
 // Server Port 
 const serverPort = 5000;
 
+// Generic server error message
+const genericServerError = 'There was an unexpected error. Please contact info@baadi.in for assistance.';
+
+// Node file logger configuration
+const nodeFileLoggerOptions = {
+    timeZone: 'America/Los_Angeles',
+    folderPath: './logs/',      
+    dateBasedFileNaming: true,
+    // Required only if dateBasedFileNaming is set to true
+    fileNamePrefix: 'Logs_',
+    fileNameExtension: '.log',    
+    dateFormat: 'YYYY-MM-DD',
+    timeFormat: 'HH:mm:ss.SSS',
+    // Change to 'prod' for production
+    logLevel: 'debug',
+    onlyFileLogging: false
+}
+
 const appConfig = {
     DB_CONNECTION_STRING: dbConnString,
     EMAIL_CONFIG: emailConfig,
     GOOGLE_AUTH: googleAuth,
     PASSPORT_SECRET: passportSecret,
-    SERVER_PORT: serverPort
+    SERVER_PORT: serverPort,
+    LOGGER_OPTIONS: nodeFileLoggerOptions,
+    GENERIC_SERVER_ERROR_MSG: genericServerError
 }
 
 module.exports = appConfig;

@@ -9,13 +9,16 @@ const passport       = require('passport');
 const requireAll     = require('require-all');
 const ejs            = require('ejs');
 const path           = require('path');
+const log            = require('node-file-logger');
 
 // Project Modules
 const appConfig      = require('./app-config');
 const mainRouter     = require('./routes/main-routes');
 const enableCORS     = require('./middlewares/enable-cors');
 const passportModule = require('./middlewares/passport-auth')(passport);
-// const apiOptions     = require('./middlewares/apiOptions.js');
+
+// Set node file logger options
+log.SetUserOptions(appConfig.LOGGER_OPTIONS);
 
 // Get port number
 const port = process.env.PORT || appConfig.SERVER_PORT;
@@ -37,7 +40,7 @@ app.use(passport.initialize());
 // Instantiate all controllers
 requireAll({
     dirname: __dirname + '/controllers',
-    filter:  /(.+controller)\.js$/,
+    filter:  /(-+controller)\.js$/,
     recursive: false
 });
 

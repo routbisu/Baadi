@@ -1,16 +1,17 @@
 const bcrypt            = require('bcrypt');
 const jwt               = require('jsonwebtoken');
 const appConfig         = require('../app-config');
+const validationHelper  = require('./validation-service');
 
 // Get user mongoose model
 const UserModel = require('../models/user');
 
 const authenticationService = {
-    /**
+    /***************************************************************************
      * Authenticate the user to check if email password combo exists
      * @param {user} userdetail - Details of the user : Email and Password
      * @param {callback} callback - CB to handle the login process
-     */
+     **************************************************************************/
     AuthenticateUser: function(loginUser, callback) {
         UserModel.findOne({
             email_id: loginUser.email_id
