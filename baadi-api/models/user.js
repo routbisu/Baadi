@@ -9,42 +9,38 @@ const mongoose = require('../services/db-connection').MONGOOSE;
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    first_name: { 
+    FirstName: { 
         type: String, 
         required: true 
     },
-    last_name: String,
-    email_id: {
+    LastName: String,
+    EmailId: {
         type: String,
         lowercase: true,
         unique: true,
         required: true
     },
-    phone: String,
-    password: {
+    Phone: String,
+    Password: {
         type: String,
         required: true
     },
-    google_login_id: String,
-    is_active: Boolean,
-    is_admin: Boolean
+    GoogleLoginId: String,
+    IsActive: Boolean,
+    IsAdmin: Boolean
 });
 
 // Use bcrypt the hash the password before inserting into the users table
 UserSchema.pre('save', function(next) {
     var user = this;
 
-    if(this.isModified('password') || this.isNew) {
+    if(this.isModified('Password') || this.isNew) {
         bcrypt.genSalt(10, function(err, salt) {
-            if(err) {
-                return next(err);
-            }
+            if(err) return next(err);
 
-            bcrypt.hash(user.password, salt, function(err, hash) {
-                if(err) {
-                    return next(err);
-                }
-                user.password = hash;
+            bcrypt.hash(user.Password, salt, function(err, hash) {
+                if(err) return next(err); 
+                user.Password = hash;
                 next();
             });
         });
@@ -55,12 +51,16 @@ UserSchema.pre('save', function(next) {
 });
 
 // Use brcrypt to compare the password provided by the user and hashed password in DB
-UserSchema.methods.comparePassword = function(password, callback) {
-    bcrypt.compare(password, this.password, function(err, isMatch) {
-        if(err) {
-            return callback(err)
-        }
-        callback(null, isMatch);
+UserSchema.methods.comparePassword = function(password) {
+    return new Promise((resolve, reject) => {
+        bcrypt.compare(password, this.Password, function(err, isMatch) {
+            if(isMatch) {
+                resolve(isMatch);
+            } else {
+                reject(err);
+            }
+            if(err) reject(err);
+        });
     });
 }
 

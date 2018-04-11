@@ -4,12 +4,12 @@
 const appConfig         = require('../app-config');
 const emailValidator    = require('email-validator');
 
-const validationHelper = {
+const validationService = {
     /**
      * Check valid email ID
      * @param {string} emailID - Email address
      */
-    IsValidEmail: function(email) {
+    IsValidEmail: email => {
         if(emailValidator.validate(email)) {
             return true;
         } else {
@@ -18,4 +18,4 @@ const validationHelper = {
     }
 }
 
-module.exports = validationHelper;
+module.exports = validationService;

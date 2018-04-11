@@ -48,3 +48,6 @@ Thumbs.db
 # Other Files
 package-lock.json
 yarn.lock
+
+# Testing sandbox
+sandbox.js
