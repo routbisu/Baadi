@@ -24,7 +24,7 @@ const authenticationService = {
 
         let promise = new Promise((resolve, reject) => {
             user.IsActive = true;
-            user.IsAdmin = false;
+            user.UserRole = 'RESIDENT';
             let newUser = new UserModel(user);
 
             // Save new user to database
@@ -62,7 +62,7 @@ const authenticationService = {
                             // Create the access token
                             // Expiry = 1 month
                             let JWTToken = jwt.sign(
-                                { UserId: user._id, EmailId: user.EmailId }, 
+                                { UserId: user._id, EmailId: user.EmailId, UserRole: user.UserRole }, 
                                 appConfig.PASSPORT_SECRET, 
                                 { expiresIn: 43200 });
                             

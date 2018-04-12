@@ -26,8 +26,16 @@ const UserSchema = new Schema({
         required: true
     },
     GoogleLoginId: String,
-    IsActive: Boolean,
-    IsAdmin: Boolean
+    IsActive: {
+        type: Boolean,
+        required: true
+    },
+    UserRole: {
+        type: String,
+        required: true
+    }
+}, { 
+    collection: 'Users' 
 });
 
 // Use bcrypt the hash the password before inserting into the users table

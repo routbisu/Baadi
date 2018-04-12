@@ -19,6 +19,14 @@ const googleAuth = {
     CALLBACK_URL: ''
 }
 
+// User roles
+const userRoles = [
+    { role: 'RESIDENT', desc: 'Owner/Tenant - lowest level of access' },
+    { role: 'SOCIETY_MEMBER', desc: 'Society member - has higher level of access' },
+    { role: 'SOCIETY_ADMIN', desc: 'Society admin - higher level access than society member' },
+    { role: 'SUPER_ADMIN', desc: 'Product super admin - controls everything' }    
+]
+
 // DB Connection String
 const dbConnString = 'mongodb://root:Baadi%402018@ds247317.mlab.com:47317/baadi';
 
@@ -48,6 +56,7 @@ const nodeFileLoggerOptions = {
 
 const appConfig = {
     DB_CONNECTION_STRING: dbConnString,
+    USER_ROLES: userRoles,
     EMAIL_CONFIG: emailConfig,
     GOOGLE_AUTH: googleAuth,
     PASSPORT_SECRET: passportSecret,
