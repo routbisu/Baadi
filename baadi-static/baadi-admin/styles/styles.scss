@@ -1,0 +1,49 @@
+@import "https://fonts.googleapis.com/css?family=Montserrat";
+
+$font-stack: 'Montserrat', 'Segoe UI', sans-serif;
+$primary-color: #333;
+
+* {
+  font-family: $font-stack;
+  color: $primary-color;
+}
+
+.login-container {
+  background: url('images/background.jpg');
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.login-container-mask {
+  background: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.7;
+}
+
+.login-card {
+  margin: auto;
+  width: 95%;
+  max-width: 400px;
+  z-index: 1000;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-55%);
+  -ms-transform: translateY(-55%);
+  transform: translateY(-55%);
+}
+
+.login-logo-image {
+  text-align: center;
+  margin-bottom: 10px;
+
+  img {
+    width: 35%;
+  }
+}
