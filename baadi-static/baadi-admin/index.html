@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Baadi Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
     <link rel="shortcut icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -18,30 +20,53 @@
         <div class="card login-card">
             <div class="card-body">
                 <div class="login-logo-image">
-                    <img src="images/logo.png" alt="Baadi logo" class="login-logo-image">
+                    <img src="images/icon-72.png" alt="Baadi logo" class="login-logo-image">
+                </div>
+                <div class="login-logo-text">
+                    Login to Admin
                 </div>
                 <form action="/action_page.php">
                     <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" class="form-control" id="email">
+                        <!-- <label for="email">Email address</label> -->
+                        <input type="email" class="form-control" id="email" placeholder="Email address">
                     </div>
                     <div class="form-group">
-                        <label for="pwd">Password</label>
-                        <input type="password" class="form-control" id="pwd">
+                        <!-- <label for="pwd">Password</label> -->
+                        <input type="password" class="form-control" id="pwd" placeholder="Password">
                     </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox"> Remember me
-                        </label>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    <button type="submit" class="btn btn-login">
+                        <i class="fa fa-lock"></i> Login Securely
+                    </button>
                 </form>
+                <div class="small-light-link">
+                    <a href="#">Forgot password?</a>
+                </div>
             </div>
         </div>
-        
-    </div>
-    <div class="login-container-mask">
 
+        <div class="login-footer">
+            <div class="app-store-links">
+                <a href="#" title="Download the Baadi app from Google play store">
+                    <img src="images/android.svg" alt="">
+                </a>
+                <a href="#" title="Download the Baadi app from Apple app store">
+                    <img src="images/apple.svg" alt="">
+                </a>
+            </div>
+
+            <div class="login-logo-image-light">
+                <img src="images/logo-bg.png" alt="">
+            </div>
+            <div class="login-logo-desc-text-container">
+                <div class="login-logo-desc-text">
+                    Baadi is a simple to use, cloud based apartment management system for small apartment complexes. It automates manual data
+                    entry tasks like visitor entry, helpdesk services, amenities management, and several other services.
+                    It also provides a web based analytics portal for viewing visitor traffic, helpdesk requests, and 
+                    data about other security related actions.
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

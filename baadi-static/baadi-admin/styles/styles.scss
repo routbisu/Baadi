@@ -2,48 +2,156 @@
 
 $font-stack: 'Montserrat', 'Segoe UI', sans-serif;
 $primary-color: #333;
+$primary-color-light: #999;
+$logo-orange: #EE3B24; 
+$logo-orange-light: #F8A89C;
+$light-grey: #DDD;
+$very-light-grey: #EAEAEA;
+$highly-light-grey: #F9F9F9;
 
 * {
   font-family: $font-stack;
   color: $primary-color;
 }
 
-.login-container {
-  background: url('images/background.jpg');
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
+/* Start of Login Page styles */
 
-.login-container-mask {
-  background: #000;
+.login-container {
+  background: $highly-light-grey;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  opacity: 0.7;
 }
 
 .login-card {
   margin: auto;
-  width: 95%;
-  max-width: 400px;
-  z-index: 1000;
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-55%);
-  -ms-transform: translateY(-55%);
-  transform: translateY(-55%);
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  padding: 20px;
+  border: none;
+  box-shadow: $light-grey 0px 0px 20px 3px;
 }
 
 .login-logo-image {
   text-align: center;
   margin-bottom: 10px;
+}
 
-  img {
-    width: 35%;
+.login-logo-image-light > img {
+  width: 70px;
+}
+
+.login-logo-desc-text {
+  text-align: justify;
+  padding: 15px;
+  color: #BBB;
+  font-size: 0.7rem;
+}
+
+/* Responsive styles for mobile */
+@media (min-width: 450px) {
+  .login-card {
+    margin: auto;
+    width: 95%;
+    max-width: 400px;
+    margin-top: 40px;
+    border: none;
+    box-shadow: $very-light-grey 0px 0px 20px 3px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+  }
+
+  .login-logo-desc-text-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    background: #F1F1F1;
+    padding: 5px;
+  }
+
+  .login-logo-desc-text {
+    color: $primary-color-light;
   }
 }
+
+.form-group > input {
+  padding: 12px 0px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid $light-grey;
+}
+
+.form-group > input::placeholder {
+  color: $primary-color-light;
+}
+
+.form-group > input:focus,
+.form-group > input:active {
+  outline: none;
+  outline-width: 0;
+  outline-style:none;
+  box-shadow:none;
+  border-color: $logo-orange-light;
+}
+
+.form-group > label {
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+  color: #999;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 10px 12px;
+  background: $logo-orange;
+  color: #FFF;
+  font-size: 0.9rem;
+  margin: 10px 0px;
+
+  i.fa {
+    color: #FFF;
+    margin-right: 4px;
+    font-size: 0.7rem;
+  }
+}
+
+.login-logo-text {
+  color: #777;
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 7px 0px 20px 0px;
+}
+
+.small-light-link {
+  text-align: center;
+
+  a {
+    text-decoration: none !important;
+    font-size: 0.8rem;
+    color: $primary-color-light;
+  }
+}
+
+.login-footer {
+  margin-top: 40px;
+  font-size: 0.8rem;
+  color: $primary-color-light;
+  text-align: center;
+}
+
+.login-logo-image-light {
+  margin: 30px 0px 0px 0px;
+}
+
+.app-store-links {
+  margin: 10px 0px 0px 0px;
+  a {
+    margin: 0px 10px;
+  }
+}
+
+/* End of Login Page styles */
