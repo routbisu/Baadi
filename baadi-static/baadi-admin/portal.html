@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Baadi Portal</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
@@ -22,6 +21,29 @@
                     <img src="images/logo.png" alt="">
                 </span>
             </div>
+            <div class="nav-left-body">
+                <ul class="nav-list">
+                    <li class="nav-list-item">
+                        <i class="fas fa-plus-circle"></i>Onboarding
+                        <span class="list-chevron">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </li>
+                    <ul class="nav-list-child">
+                        <li class="nav-list-child-item">Amsterdam</li>
+                        <li class="nav-list-child-item">Munich</li>
+                        <li class="nav-list-child-item">Vienna</li>
+                    </ul>
+                    <li class="nav-list-item">
+                        <i class="fas fa-chart-line"></i>Analytics</li>
+                    <li class="nav-list-item">
+                        <i class="fas fa-calculator"></i>Billing</li>
+                    <li class="nav-list-item">
+                        <i class="fas fa-cog"></i>Configure Property</li>
+                    <li class="nav-list-item">
+                        <i class="fas fa-minus-square"></i>Deactivate Property</li>
+                </ul>
+            </div>
         </nav>
         <div class="nav-top-header">
             <span class="hamburger">
@@ -33,8 +55,16 @@
                         Global Search
                         <i class="fas fa-search"></i>
                     </span>
-                    <i class="fas fa-bell"></i>
-                    <i class="fas fa-envelope"></i>
+
+                    <span class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-numbers">3</span>
+                    </span>
+
+                    <span class="notifications">
+                        <i class="fas fa-comment"></i>
+                        <span class="notification-numbers">8</span>
+                    </span>
                 </span>
                 <span class="profile-pic-section">
                     <img src="https://avatars3.githubusercontent.com/u/20873985?v=4" alt="" class="profile-pic">
@@ -42,11 +72,19 @@
                 </span>
             </span>
         </div>
-    </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <div class="main-content">
+            <div class="page-heading-section">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6 page-heading">Add New Property</div>
+                    <div class="bread-crumb col-xs-12 col-md-6">Onboarding / Add New Property</div>
+                </div>
+            </div>
+            <div class="page-content">
+                <h4>Page content</h4>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
