@@ -47,8 +47,7 @@ requireAll({
 // app.use(apiOptions);
 
 // Register the API routes
-// All of the routes must be prefixed with /api
-app.use('/api', mainRouter);
+app.use(mainRouter);
 
 // Start the API Server
 // =================================================================================

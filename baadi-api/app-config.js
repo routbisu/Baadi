@@ -3,7 +3,7 @@
 // =================================================================================
 
 const devConfig = require('./config/dev');
-const qaConfig = require('./config/qa');
+const uatConfig = require('./config/uat');
 const prodConfig = require('./config/prod');
 
 /**
