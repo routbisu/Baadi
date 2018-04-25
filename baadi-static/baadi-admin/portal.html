@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset=utf-8>
+    <meta http-equiv=x-ua-compatible content="ie=edge">
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1">
     <title>Baadi Portal</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
@@ -14,84 +14,97 @@
 </head>
 
 <body>
-    <div class="container-fluid main-container">
-        <nav class="navbar nav-left">
-            <div class="nav-left-header">
-                <span class="logo">
-                    <img src="images/logo.png" alt="">
-                </span>
-            </div>
-            <div class="nav-left-body">
-                <ul class="nav-list">
-                    <li class="nav-list-item">
-                        <i class="fas fa-plus-circle"></i>Onboarding
-                        <span class="list-chevron">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                    </li>
-                    <ul class="nav-list-child">
-                        <li class="nav-list-child-item">Amsterdam</li>
-                        <li class="nav-list-child-item">Munich</li>
-                        <li class="nav-list-child-item">Vienna</li>
-                    </ul>
-                    <li class="nav-list-item">
-                        <i class="fas fa-chart-line"></i>Analytics</li>
-                    <li class="nav-list-item">
-                        <i class="fas fa-calculator"></i>Billing</li>
-                    <li class="nav-list-item">
-                        <i class="fas fa-cog"></i>Configure Property</li>
-                    <li class="nav-list-item">
-                        <i class="fas fa-minus-square"></i>Deactivate Property</li>
+
+    <nav class="navbar nav-left">
+        <div class="nav-left-header">
+            <span class="logo">
+                <img src="images/logo.png" alt="">
+            </span>
+        </div>
+        <div class="nav-left-body">
+            <ul class="nav-list">
+                <li class="nav-list-item">
+                    <i class="fas fa-plus-circle"></i>Onboarding
+                    <span class="list-chevron">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </li>
+                <ul class="nav-list-child">
+                    <li class="nav-list-child-item">Amsterdam</li>
+                    <li class="nav-list-child-item">Munich</li>
+                    <li class="nav-list-child-item">Vienna</li>
                 </ul>
-            </div>
-        </nav>
-        <div class="nav-top-header">
-            <span class="hamburger">
-                <i class="fas fa-bars"></i>
-            </span>
-            <span class="profile-section-handle d-block d-sm-none">
-                <img src="images/logo.png">
-                <i class="fas fa-chevron-down"></i>
-            </span>
-            <div class="profile-section-mobile d-block d-sm-none">
-                <span class="notifications">
+                <li class="nav-list-item">
+                    <i class="fas fa-chart-line"></i>Analytics</li>
+                <li class="nav-list-item">
+                    <i class="fas fa-calculator"></i>Billing</li>
+                <li class="nav-list-item">
+                    <i class="fas fa-cog"></i>Configure Property</li>
+                <li class="nav-list-item">
+                    <i class="fas fa-minus-square"></i>Deactivate Property</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="nav-top-header">
+        <span class="hamburger">
+            <i class="fas fa-bars"></i>
+        </span>
+        <span class="profile-section-handle d-block d-sm-none">
+            <img src="images/logo.png">
+            <i class="fas fa-chevron-down"></i>
+        </span>
+
+        <span class="profile-section">
+            <span class="profile-actions-section">
+                <span class="global-search">
+                    Global Search
                     <i class="fas fa-search"></i>
                 </span>
+
                 <span class="notifications">
                     <i class="fas fa-bell"></i>
                     <span class="notification-numbers">3</span>
                 </span>
+
                 <span class="notifications">
                     <i class="fas fa-comment"></i>
                     <span class="notification-numbers">8</span>
                 </span>
-                <span class="profile-pic-section">
-                    <img src="https://avatars3.githubusercontent.com/u/20873985?v=4" alt="" class="profile-pic">
-                    <i class="fas fa-chevron-down"></i>
-                </span>
+            </span>
+            <div class="profile-pic-section">
+                <img src="https://avatars3.githubusercontent.com/u/20873985?v=4" alt="" class="profile-pic">
+                Khalnayak
+                <i class="fas fa-chevron-down"></i>
             </div>
-            <span class="profile-section">
-                <span class="profile-actions-section">
-                    <span class="global-search">
-                        Global Search
+        </span>
+    </div>
+
+    <div class="container-fluid main-container">
+        <div class="profile-section-mobile d-block d-sm-none">
+            <div class="row">
+                <div class="col">
+                    <span class="notifications">
                         <i class="fas fa-search"></i>
                     </span>
-
+                </div>
+                <div class="col">
                     <span class="notifications">
                         <i class="fas fa-bell"></i>
                         <span class="notification-numbers">3</span>
                     </span>
-
+                </div>
+                <div class="col">
                     <span class="notifications">
                         <i class="fas fa-comment"></i>
                         <span class="notification-numbers">8</span>
                     </span>
-                </span>
-                <span class="profile-pic-section">
-                    <img src="https://avatars3.githubusercontent.com/u/20873985?v=4" alt="" class="profile-pic">
-                    <i class="fas fa-chevron-down"></i>
-                </span>
-            </span>
+                </div>
+                <div class="col">
+                    <span class="notifications">
+                        <i class="fas fa-power-off"></i>
+                    </span>
+                </div>
+            </div>
         </div>
 
         <div class="main-content">
@@ -102,6 +115,25 @@
                 </div>
             </div>
             <div class="page-content">
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
+                <h4>Page content</h4>
                 <h4>Page content</h4>
             </div>
         </div>

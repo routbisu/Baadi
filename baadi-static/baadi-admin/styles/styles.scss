@@ -166,6 +166,11 @@ $admin-left-nav-width: 270px;
 
 
 /* Start of styles for portal */
+.row {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .red-border {
   border: 1px solid red;
 }
@@ -174,43 +179,49 @@ body {
   background: $highly-light-grey;
 }
 
-.main-container {
+.container-fluid {
   margin: 0;
   padding: 0;
   padding-left: $admin-left-nav-width;
+}
 
-  .nav-top-header {
-    background: #FFF;
-    box-shadow: 3px 0px 5px 0px #EEE;
+.main-container {
+  padding-top: 55px;
+}
 
-    .hamburger i {
-      font-size: 1.5rem;
-      color: $logo-orange;
+.nav-top-header {
+  position: fixed;
+  top: 0; /* required */
+  right: 0;
+  left: $admin-left-nav-width;
+  z-index: 1000;
+  background: #FFF;
+  box-shadow: 3px 0px 5px 0px #EEE;
+
+  .hamburger i {
+    font-size: 1.5rem;
+    color: $logo-orange;
+    cursor: pointer;
+    padding: 16px;
+    padding-left: 22px;
+  }
+
+  .profile-section {
+    float: right;
+    padding: 10px 25px 0px 5px;
+    vertical-align: top;
+  }
+
+  .profile-actions-section {
+
+    position: relative;
+    top: 3px;
+
+    i {
+      margin-right: 15px;
+      font-size: 18px;
       cursor: pointer;
-      padding: 16px;
-      padding-left: 22px;
-    }
-
-    .profile-section {
-      float: right;
-      padding: 8px 25px;
-
-      i {
-        color: $logo-orange;
-        width: 5px;
-        margin-left: 5px;
-      }
-    }
-
-    .profile-actions-section {
-      padding-right: 10px;
-
-      i {
-        margin-right: 15px;
-        font-size: 18px;
-        cursor: pointer;
-        color: $primary-color-light;
-      }
+      color: $primary-color-light;
     }
 
     .global-search {
@@ -244,32 +255,45 @@ body {
       left: -6px;
       top: -15px;
     }
-
-    .profile-pic-section {
-      cursor: pointer;
-    }
-
-    .profile-pic {
-      border-radius: 50%;
-      width: 40px;
-    }
   }
 
-  .page-heading-section {
-    margin: 15px 20px;
-  }
-
-  .page-heading {
+  .profile-pic-section {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 0.85rem;
     color: $logo-orange;
-    font-size: 1.3rem;
 
-    .bread-crumb {
-      font-size: 0.85rem;
-      float: right;
-      padding-top: 5px;
-      font-weight: 400;
-      cursor: pointer;
+    img {
+      margin-right: 5px;
     }
+
+    i {
+      color: $logo-orange;
+      width: 5px;
+      margin-left: 5px;
+    }
+  }
+
+  .profile-pic {
+    border-radius: 50%;
+    width: 35px;
+  }
+}
+
+.page-heading-section {
+  margin: 15px 20px;
+}
+
+.page-heading {
+  color: $logo-orange;
+  font-size: 1.3rem;
+
+  .bread-crumb {
+    font-size: 0.85rem;
+    float: right;
+    padding-top: 5px;
+    font-weight: 400;
+    cursor: pointer;
   }
 }
 
@@ -313,11 +337,35 @@ nav.nav-left {
 }
 
 .profile-section-mobile {
-  position: relative;
-  text-align: right;
+  width: 100%;
+  background: #FFF;
+  padding: 18px 5px 12px 5px;
+  border-top: 1px solid $highly-light-grey;
+  border-bottom: 1px solid $very-light-grey;
+  box-shadow: 0px 0px 10px 0px #EEE;
+  position: sticky !important;
 
   i {
-    color: $primary-color-light;
+    font-size: 1.2rem;
+    color: $logo-orange;
+  }
+
+  .col {
+    text-align: center;
+  }
+}
+
+.collapse-menu {
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px 10px 10px 15px;
+  background: #FFF;
+  border-radius: 3px;
+  color: $logo-orange;
+  font-size: 0.8rem;
+
+  i {
+    color: $logo-orange;
   }
 }
 
@@ -330,7 +378,7 @@ nav.nav-left {
 }
 
 @media (max-width: 576px) {
-  .main-container {
+  .container-fluid {
     padding-left: 0px;
   }
 
@@ -341,6 +389,10 @@ nav.nav-left {
 
   .profile-section {
     display: none;
+  }
+
+  .nav-top-header {
+    left: 0;
   }
 }
 
