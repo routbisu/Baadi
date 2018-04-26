@@ -1,3 +1,4 @@
+import { BreadCrumb } from './models/common/breadcrumb';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  logoUrl = 'assets/images/logo.png';
+  header: BreadCrumb = {
+    heading: 'Some heading',
+    links: null
+  };
 }

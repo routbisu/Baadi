@@ -1,0 +1,10 @@
+@import '../../../../sass/variables';
+@import '../../../../sass/mixins';
+
+.bread-crumb {
+  font-size: 0.9rem;
+  span a {
+    text-decoration: none;
+    color: $logo-orange;
+  }
+}
