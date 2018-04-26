@@ -1,0 +1,53 @@
+<div class="login-container">
+
+    <div class="card login-card">
+        <div class="card-body">
+            <div class="login-logo-image">
+                <img [src]="imageUrls.icon" alt="Baadi logo" class="login-logo-image">
+            </div>
+            <div class="login-logo-text">
+                Login to Admin
+            </div>
+            <form action="/portal.html">
+                <div class="form-group">
+                    <!-- <label for="email">Email address</label> -->
+                    <input type="email" class="form-control" id="email" placeholder="Email address">
+                </div>
+                <div class="form-group">
+                    <!-- <label for="pwd">Password</label> -->
+                    <input type="password" class="form-control" id="pwd" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-login">
+                    <i class="fa fa-lock"></i> Login Securely
+                </button>
+            </form>
+            <div class="small-light-link">
+                <a href="#">Forgot password?</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-footer">
+        <div class="app-store-links">
+            <a href="#" title="Download the Baadi app from Google play store">
+                <img [src]="imageUrls.android" alt="">
+            </a>
+            <a href="#" title="Download the Baadi app from Apple app store">
+                <img [src]="imageUrls.apple" alt="">
+            </a>
+        </div>
+
+        <div class="login-logo-image-light">
+            <img [src]="imageUrls.logo" alt="">
+        </div>
+        <div class="login-logo-desc-text-container">
+            <div class="login-logo-desc-text">
+                Baadi is a simple to use, cloud based apartment management system for small apartment complexes. It automates manual data
+                entry tasks like visitor entry, helpdesk services, amenities management, and several other services.
+                It also provides a web based analytics portal for viewing visitor traffic, helpdesk requests, and
+                data about other security related actions.
+            </div>
+        </div>
+
+    </div>
+</div>

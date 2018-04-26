@@ -37,7 +37,7 @@
     <i class="fas fa-bars"></i>
   </span>
   <span class="profile-section-handle d-block d-sm-none">
-    <img src="./images/logo.png">
+    <img [src]="logoUrl" alt="">
     <i class="fas fa-chevron-down"></i>
   </span>
 
@@ -94,33 +94,9 @@
   </div>
 
   <div class="main-content">
-    <div class="page-heading-section">
-      <div class="row">
-        <div class="col-xs-12 col-md-6 page-heading">Add New Property</div>
-        <div class="bread-crumb col-xs-12 col-md-6">Onboarding / Add New Property</div>
-      </div>
-    </div>
+    <app-breadcrumb></app-breadcrumb>
     <div class="page-content">
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
-      <h4>Page content</h4>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
