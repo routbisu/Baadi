@@ -1,4 +1,3 @@
-import { BreadCrumb } from './../../../models/common/breadcrumb';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd, Params, PRIMARY_OUTLET } from '@angular/router';
 import 'rxjs/add/operator/filter';
