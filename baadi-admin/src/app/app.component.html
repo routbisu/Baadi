@@ -1,5 +1,5 @@
 <app-left-navbar [isOpen]="isLeftNavbarOpen"></app-left-navbar>
-<app-top-navbar (toggleLeftNavbar)="toggleNav($event)" [isOpen]="isLeftNavbarOpen"></app-top-navbar>
+<app-top-navbar (toggleLeftNavbar)="toggleNav()" [isOpen]="isLeftNavbarOpen"></app-top-navbar>
 
 <div class="container-fluid main-container" [ngClass]="{'nav-closed': !isLeftNavbarOpen}">
   <app-mobile-profile-section></app-mobile-profile-section>

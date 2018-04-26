@@ -11,7 +11,7 @@ export class AppComponent {
   isLeftNavbarOpen = true;
 
   // Toggle the state of left navbar
-  toggleNav($event) {
+  toggleNav() {
     this.isLeftNavbarOpen = !this.isLeftNavbarOpen;
   }
 }

@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LeftNavbarComponent implements OnInit {
 
   logoUrl = 'assets/images/logo.png';
+  iconUrl = 'assets/images/icon-36.png';
 
   @Input() isOpen: boolean;
 
