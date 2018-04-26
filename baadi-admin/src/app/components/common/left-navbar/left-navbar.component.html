@@ -1,4 +1,4 @@
-<nav class="navbar nav-left">
+<nav class="navbar nav-left" [ngClass]="{'nav-closed': !isOpen}">
   <div class="nav-left-header">
     <span class="logo">
       <img [src]="logoUrl" alt="">

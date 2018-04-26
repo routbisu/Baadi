@@ -1,1 +1,6 @@
 @import '~sass/variables';
+
+.nav-closed {
+  padding-left: $admin-left-nav-width-closed;
+  transition: 0.4s;
+}

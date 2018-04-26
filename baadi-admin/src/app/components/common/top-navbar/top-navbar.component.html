@@ -1,24 +1,24 @@
-<div class="nav-top-header">
-    <span class="hamburger">
+<div class="nav-top-header" [ngClass]="{'nav-closed': !isOpen}">
+    <span class="hamburger" (click)="clickHamburgerDesktop()">
       <i class="fas fa-bars"></i>
     </span>
     <span class="profile-section-handle d-block d-sm-none">
       <img [src]="logoUrl" alt="">
       <i class="fas fa-chevron-down"></i>
     </span>
-  
+
     <span class="profile-section">
       <span class="profile-actions-section">
         <span class="global-search">
           Global Search
           <i class="fas fa-search"></i>
         </span>
-  
+
         <span class="notifications">
           <i class="fas fa-bell"></i>
           <span class="notification-numbers">3</span>
         </span>
-  
+
         <span class="notifications">
           <i class="fas fa-comment"></i>
           <span class="notification-numbers">8</span>

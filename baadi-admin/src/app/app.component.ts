@@ -5,4 +5,13 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent { }
+export class AppComponent {
+
+  // Left nav bar open/close state
+  isLeftNavbarOpen = true;
+
+  // Toggle the state of left navbar
+  toggleNav($event) {
+    this.isLeftNavbarOpen = !this.isLeftNavbarOpen;
+  }
+}

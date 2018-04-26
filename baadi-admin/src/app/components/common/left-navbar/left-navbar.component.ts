@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-left-navbar',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class LeftNavbarComponent implements OnInit {
 
   logoUrl = 'assets/images/logo.png';
+
+  @Input() isOpen: boolean;
 
   constructor() { }
 

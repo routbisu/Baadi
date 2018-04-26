@@ -28,6 +28,7 @@ body {
   margin: 0;
   padding: 0;
   padding-left: $admin-left-nav-width;
+  transition: 0.4s;
 }
 
 .main-container {
@@ -42,6 +43,7 @@ body {
   z-index: 1000;
   background: #FFF;
   box-shadow: 3px 0px 5px 0px #EEE;
+  transition: 0.4s;
 
   .hamburger i {
     font-size: 1.5rem;
@@ -153,6 +155,7 @@ nav.nav-left {
   border-right: 1px solid $nav-grey-border;
   display: inline-block;
   padding: 0;
+  transition: 0.4s;
 
   .nav-left-header {
     background: #FFF;
