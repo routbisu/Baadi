@@ -1,0 +1,77 @@
+import {
+  Component, OnInit, trigger, transition, style,
+  animate, state, group, Input, SimpleChanges
+} from '@angular/core';
+
+@Component({
+  selector: 'app-nav-list-item',
+  templateUrl: './nav-list-item.component.html',
+  styleUrls: ['./nav-list-item.component.scss'],
+  animations: [
+    trigger('slideInOut', [
+      state('in', style({height: '*', opacity: 0})),
+      transition(':leave', [
+          style({height: '*', opacity: 1}),
+
+          group([
+              animate(150, style({height: 0})),
+              animate('150ms ease-in-out', style({'opacity': '0'}))
+          ])
+
+      ]),
+      transition(':enter', [
+          style({height: '0', opacity: 0}),
+
+          group([
+              animate(150, style({height: '*'})),
+              animate('150ms ease-in-out', style({'opacity': '1'}))
+          ])
+
+      ])
+  ])
+  ]
+})
+export class NavListItemComponent {
+
+  // Check if left navbar is open
+  @Input() isNavOpen: boolean;
+
+  showSubMenu = false;
+  showSubMenuCondensed = false;
+  keepMenuOpenFlag = false;
+  subMenuPosition = '75px';
+  closeMenuTimeout: any = null;
+
+  // Toggle submenu when main menu is open
+  toggleChild() {
+    this.showSubMenu = !this.showSubMenu;
+    console.log('isNavOpen', this.isNavOpen);
+  }
+
+  // Toggle submenu when main menu is condensed
+  toggleChildCondensed(delay = false) {
+    if (!this.isNavOpen) {
+      if (delay) {
+        this.closeMenuTimeout = setTimeout(() => {
+          if (!this.keepMenuOpenFlag) {
+            this.showSubMenuCondensed = !this.showSubMenuCondensed;
+          }
+        }, 100);
+      } else {
+        this.showSubMenuCondensed = !this.showSubMenuCondensed;
+      }
+    }
+  }
+
+  // Keep menu open if sub menu is on mouse focus
+  keepMenuOpen() {
+    this.keepMenuOpenFlag = true;
+    clearTimeout(this.closeMenuTimeout);
+  }
+
+  // Close menu on mouse leave
+  closeMenu() {
+    this.showSubMenuCondensed = false;
+    this.keepMenuOpenFlag = false;
+  }
+}

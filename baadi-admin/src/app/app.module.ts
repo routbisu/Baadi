@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -12,6 +13,7 @@ import { LeftNavbarComponent } from './components/common/left-navbar/left-navbar
 import { TopNavbarComponent } from './components/common/top-navbar/top-navbar.component';
 import { MobileProfileSectionComponent } from './components/common/mobile-profile-section/mobile-profile-section.component';
 import { ManageApartmentComponent } from './components/admin/onboarding/manage-apartment/manage-apartment.component';
+import { NavListItemComponent } from './components/common/nav-list-item/nav-list-item.component';
 
 // List of routes used in the application
 const appRoutes = [
@@ -44,10 +46,12 @@ const appRoutes = [
     LeftNavbarComponent,
     TopNavbarComponent,
     MobileProfileSectionComponent,
-    ManageApartmentComponent
+    ManageApartmentComponent,
+    NavListItemComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

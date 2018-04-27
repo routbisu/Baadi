@@ -6,16 +6,7 @@
   </div>
   <div class="nav-left-body">
     <ul class="nav-list" [ngClass]="{'nav-list-condensed': !isOpen}">
-      <li class="nav-list-item">
-        <i class="fas fa-plus-circle"></i>
-        <span class="nav-list-item-text">Onboarding</span>
-        <ul class="nav-list-child">
-          <li class="nav-list-child-item">Alert Types</li>
-          <li class="nav-list-child-item">Ticket Categories</li>
-          <li class="nav-list-child-item">Staff Categories</li>
-        </ul>
-      </li>
-
+      <app-nav-list-item [isNavOpen]="isOpen"></app-nav-list-item>
       <li class="nav-list-item">
         <i class="fas fa-chart-line"></i>
         <span class="nav-list-item-text">Analytics</span>
@@ -23,24 +14,14 @@
       <li class="nav-list-item">
         <i class="fas fa-calculator"></i>
         <span class="nav-list-item-text">Billing</span>
-        <ul class="nav-list-child">
-          <li class="nav-list-child-item">Alert Types</li>
-          <li class="nav-list-child-item">Ticket Categories</li>
-          <li class="nav-list-child-item">Staff Categories</li>
-        </ul>
       </li>
+
+
       <li class="nav-list-item">
-        <i class="fas fa-cog"></i>
-        <span class="nav-list-item-text">Configure Property</span>
-        <span class="list-chevron">
-          <i class="fas fa-chevron-down chevron"></i>
-        </span>
-        <ul class="nav-list-child">
-          <li class="nav-list-child-item">Alert Types</li>
-          <li class="nav-list-child-item">Ticket Categories</li>
-          <li class="nav-list-child-item">Staff Categories</li>
-        </ul>
+        <i class="fas fa-minus-square"></i>
+        <span class="nav-list-item-text">Deactivate Property</span>
       </li>
+      <app-nav-list-item [isNavOpen]="isOpen"></app-nav-list-item>
       <li class="nav-list-item">
         <i class="fas fa-minus-square"></i>
         <span class="nav-list-item-text">Deactivate Property</span>
@@ -76,11 +57,18 @@
       <li class="nav-list-item">
         <i class="fas fa-minus-square"></i>
         <span class="nav-list-item-text">Deactivate Property</span>
-        <ul class="nav-list-child">
-            <li class="nav-list-child-item">Alert Types</li>
-            <li class="nav-list-child-item">Ticket Categories</li>
-            <li class="nav-list-child-item">Staff Categories</li>
-          </ul>
+      </li>
+      <li class="nav-list-item">
+        <i class="fas fa-minus-square"></i>
+        <span class="nav-list-item-text">Deactivate Property</span>
+      </li>
+      <li class="nav-list-item">
+        <i class="fas fa-minus-square"></i>
+        <span class="nav-list-item-text">Deactivate Property</span>
+      </li>
+      <li class="nav-list-item">
+        <i class="fas fa-minus-square"></i>
+        <span class="nav-list-item-text">Deactivate Property</span>
       </li>
       <li class="nav-list-item">
         <i class="fas fa-minus-square"></i>

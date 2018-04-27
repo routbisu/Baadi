@@ -9,6 +9,8 @@
 * {
   font-family: $font-stack;
   color: $primary-color;
+  margin: 0;
+  padding: 0;
 }
 
 .row {
@@ -146,25 +148,25 @@ body {
 }
 
 nav.nav-left {
+  z-index: 1500;
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
+  bottom: 0;
   width: $admin-left-nav-width;
   background: $nav-grey-bg;
   border-right: 1px solid $nav-grey-border;
   display: inline-block;
   padding: 0;
   transition: 0.4s;
-  overflow-y: auto;
-  overflow-x: hidden;
+  // overflow-y: auto;
 
   .nav-left-header {
     background: #FFF;
     color: #FFF;
     padding: 10px;
     box-shadow: -3px 0px 10px 0px #EEE;
-    position: sticky;
 
     .logo img {
       width: 100px;
@@ -222,6 +224,21 @@ nav.nav-left {
   }
 }
 
+.nav-list-condensed {
+  .nav-list-item-text,
+  i.chevron,
+  ul.nav-list-child {
+    display: none;
+  }
+
+  .nav-list-item:hover {
+    background: $logo-orange !important;
+    i {
+      color: #FFF;
+    }
+  }
+}
+
 @media (min-width: 576px) {
   .bread-crumb {
     text-align: right;
@@ -261,7 +278,6 @@ nav.nav-left {
   margin: 0;
   padding: 0;
   margin-top: 20px;
-  overflow: auto;
 
   .nav-list-item-text {
     color: $logo-orange;
@@ -275,6 +291,8 @@ nav.nav-left {
     padding: 8px 10px 8px 20px;
     transition: 0.4s;
 
+    position: relative;
+
     i {
       color: $logo-orange;
       margin-right: 10px;
@@ -284,6 +302,7 @@ nav.nav-left {
 
   .nav-list-item:hover {
     background: #FFF;
+    transition: 0.4s;
   }
 }
 
@@ -298,38 +317,11 @@ nav.nav-left {
   }
 }
 
-.nav-list-condensed {
-  .nav-list-item-text, i.chevron {
-    display: none;
-  }
-
-  ul.nav-list-child {
-    border: 1px solid #EAEAEA;
-    border-left: none;
-    box-shadow: -3px 0px 10px 0px #EEE;
-    background: #FFF;
-    position: absolute;
-    margin-left: 36px;
-    margin-top: -33px;
-    width: 250px;
-    padding: 5px;
-    padding-left: 15px;
-    //display: none;
-
-    li {
-      margin-bottom: 5px;
-    }
-  }
-
-}
-
-
-
 @media (min-width: 576px) {
   .nav-list {
     .nav-list-item {
       font-size: 1rem;
-      margin: 15px 0px;
+      margin: 10px 0px;
 
       i {
         font-size: 16px;
@@ -339,7 +331,8 @@ nav.nav-left {
   }
 
   .nav-list-child {
-    padding-left: 32px;
+    z-index: 5000 !important;
+    padding-left: 52px;
     .nav-list-child-item {
       font-size: 0.9rem;
     }

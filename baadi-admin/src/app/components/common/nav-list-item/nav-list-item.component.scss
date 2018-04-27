@@ -1,0 +1,35 @@
+@import '../../../../sass/variables';
+
+// Styles for the condensed nav list
+div.nav-list-child-condensed {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-left: none;
+  box-shadow: 1px 1px 4px #EEE;
+  width: 250px;
+  padding: 0;
+  position: fixed;
+  left: 55px;
+
+  .sub-menu-header {
+    background: $logo-orange;
+    padding: 9px 15px;
+    font-size: 0.9rem;
+    color: #fff;
+  }
+
+  ul {
+    list-style: none;
+    border-left: none;
+    li {
+      color: $logo-orange;
+      font-size: 0.9rem;
+      cursor: pointer;
+      padding: 10px 15px;
+      transition: 0.3s;
+    }
+    li:hover {
+      background: $highly-light-grey;
+    }
+  }
+}
