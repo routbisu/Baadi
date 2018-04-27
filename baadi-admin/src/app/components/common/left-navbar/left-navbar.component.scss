@@ -5,6 +5,21 @@
   transition: 0.4s;
 }
 
+.nav-open-mobile {
+  width: $admin-left-nav-width-mobile !important;
+  display: block !important;
+  margin-top: 56px !important;
+  transition: 0.4s !important;
+
+  .nav-left-header {
+    display: none !important;
+  }
+
+  .nav-list-child {
+    margin-left: 10px !important;
+  }
+}
+
 .icon-display img {
   margin-left: 0px !important;
   width: 36px !important;

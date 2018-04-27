@@ -10,6 +10,10 @@ div.nav-list-child-condensed {
   padding: 0;
   position: fixed;
   left: 55px;
+  top: 56px;
+  height: 100%;
+  border-radius: 3px;
+  transition: 0.4s;
 
   .sub-menu-header {
     background: $logo-orange;
@@ -31,5 +35,12 @@ div.nav-list-child-condensed {
     li:hover {
       background: $highly-light-grey;
     }
+  }
+}
+
+.nav-list-child-item {
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 }

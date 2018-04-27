@@ -6,25 +6,32 @@
     <i class="fas fa-plus-circle"></i>
     <span class="nav-list-item-text">Onboarding</span>
     <span class="list-chevron">
-      <i class="fas fa-chevron-right chevron"></i>
+      <i class="fas chevron" [ngClass]="chevronDirection"></i>
     </span>
   </li>
   <ul class="nav-list-child" *ngIf="showSubMenu" [@slideInOut]>
-    <li class="nav-list-child-item">Alert Types</li>
-    <li class="nav-list-child-item">Ticket Categories</li>
+      <li class="nav-list-child-item">
+          <a routerLink="/">Home</a>
+        </li>
+    <li class="nav-list-child-item">
+        <a routerLink="onboarding/add">Add New Apartment</a>
+      </li>
     <li class="nav-list-child-item">Staff Categories</li>
   </ul>
   <div class="nav-list-child-condensed"
-     [@slideInOut]
-     *ngIf="showSubMenuCondensed"
-    [ngStyle]="{'top': subMenuPosition}"
+    [@slideInOut]
+    *ngIf="showSubMenuCondensed"
     (mouseenter)="keepMenuOpen()"
     (mouseleave)="closeMenu()"
   >
     <div class="sub-menu-header">Onboarding</div>
-    <ul >
-      <li class="nav-list-child-item">Alert Types</li>
-      <li class="nav-list-child-item">Ticket Categories</li>
+    <ul (click)="closeMenu()">
+        <li class="nav-list-child-item">
+            <a routerLink="/">Home</a>
+          </li>
+      <li class="nav-list-child-item">
+        <a routerLink="onboarding/add">Add New Apartment</a>
+      </li>
       <li class="nav-list-child-item">Staff Categories</li>
     </ul>
   </div>

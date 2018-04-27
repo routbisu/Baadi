@@ -5,11 +5,5 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './mobile-profile-section.component.html',
   styleUrls: ['./mobile-profile-section.component.scss']
 })
-export class MobileProfileSectionComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class MobileProfileSectionComponent {
 }

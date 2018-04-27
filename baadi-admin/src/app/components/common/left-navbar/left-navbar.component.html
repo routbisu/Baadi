@@ -1,4 +1,7 @@
-<nav class="navbar nav-left" [ngClass]="{'nav-closed': !isOpen}">
+<nav class="navbar nav-left"
+  [@slideInOut]
+  [ngClass]="{'nav-closed': !isOpen, 'nav-open-mobile': !isOpenMobile }">
+    <!-- <nav class="navbar nav-left nav-open-mobile"> -->
   <div class="nav-left-header">
     <span class="logo" [ngClass]="{'icon-display': !isOpen }">
       <img [src]="isOpen ? logoUrl: iconUrl" alt="Baadi Logo">
@@ -58,22 +61,7 @@
         <i class="fas fa-minus-square"></i>
         <span class="nav-list-item-text">Deactivate Property</span>
       </li>
-      <li class="nav-list-item">
-        <i class="fas fa-minus-square"></i>
-        <span class="nav-list-item-text">Deactivate Property</span>
-      </li>
-      <li class="nav-list-item">
-        <i class="fas fa-minus-square"></i>
-        <span class="nav-list-item-text">Deactivate Property</span>
-      </li>
-      <li class="nav-list-item">
-        <i class="fas fa-minus-square"></i>
-        <span class="nav-list-item-text">Deactivate Property</span>
-      </li>
-      <li class="nav-list-item">
-        <i class="fas fa-minus-square"></i>
-        <span class="nav-list-item-text">Deactivate Property</span>
-      </li>
+      <app-nav-list-item [isNavOpen]="isOpen"></app-nav-list-item>
     </ul>
   </div>
 </nav>

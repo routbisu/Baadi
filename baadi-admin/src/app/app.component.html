@@ -1,10 +1,15 @@
-<app-left-navbar [isOpen]="isLeftNavbarOpen"></app-left-navbar>
-<app-top-navbar (toggleLeftNavbar)="toggleNav()" [isOpen]="isLeftNavbarOpen"></app-top-navbar>
+<app-left-navbar [isOpen]="isLeftNavbarOpen" [isOpenMobile]="isLeftNavbarOpenMobile">
+</app-left-navbar>
+<app-top-navbar
+  (toggleLeftNavbar)="toggleNav()"
+  (toggleLeftNavbarMobile)="toggleNavMobile()"
+  [isOpen]="isLeftNavbarOpen"
+  [resetHamburger]="resetHamburger"
+></app-top-navbar>
 
 <div class="container-fluid main-container" [ngClass]="{'nav-closed': !isLeftNavbarOpen}">
-  <app-mobile-profile-section></app-mobile-profile-section>
   <div class="main-content">
-    <app-breadcrumb></app-breadcrumb>
+    <app-breadcrumb (closeNavMenu)="closeNav()"></app-breadcrumb>
     <div class="page-content">
       <router-outlet></router-outlet>
     </div>

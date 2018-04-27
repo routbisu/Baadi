@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd, Params, PRIMARY_OUTLET } from '@angular/router';
 import 'rxjs/add/operator/filter';
 
@@ -17,6 +17,8 @@ export class BreadcrumbComponent implements OnInit {
   public breadcrumbs: IBreadcrumb[];
   public heading = '';
 
+  @Output() closeNavMenu = new EventEmitter();
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router
@@ -27,6 +29,11 @@ export class BreadcrumbComponent implements OnInit {
   ngOnInit() {
     // Subscribe to the NavigationEnd event
     this.router.events.filter(event => event instanceof NavigationEnd).subscribe(event => {
+
+      // Emit an event to close navigation menu
+      // console.log('Nav end from bc');
+      this.closeNavMenu.emit();
+
       // Set breadcrumbs
       const root: ActivatedRoute = this.activatedRoute.root;
       this.breadcrumbs = this.getBreadcrumbs(root);
