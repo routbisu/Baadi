@@ -14,9 +14,15 @@ export class LoginComponent implements OnInit {
     logo: 'assets/images/logo-bg.png'
   };
 
+  email: string = 'hello';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  login(value) {
+    console.log(value);
   }
 
 }
