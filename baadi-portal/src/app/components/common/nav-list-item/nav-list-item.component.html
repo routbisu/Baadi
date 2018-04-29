@@ -9,7 +9,7 @@
     <i class="fas chevron" [ngClass]="chevronDirection"></i>
   </span>
 </li>
-<ul class="nav-list-child" *ngIf="showSubMenu" [@slideInOut]>
+<ul class="nav-list-child" *ngIf="menu.subMenu && showSubMenu" [@slideInOut]>
   <li class="nav-list-child-item" *ngFor="let subMenuItem of menu.subMenu">
     <a [routerLink]="subMenuItem.link">{{ subMenuItem.navListChildItemText }}</a>
   </li>

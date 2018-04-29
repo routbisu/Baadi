@@ -33,6 +33,11 @@ export class LeftNavbarComponent {
   // List of nav menu items
   navMenuItems: any = [
     {
+      'navListItemText': 'Home',
+      'faIcon': 'fas fa-home',
+      'link': '/'
+    },
+    {
       'navListItemText': 'Visitors',
       'faIcon': 'fas fa-user',
       'subMenu': [
@@ -41,7 +46,28 @@ export class LeftNavbarComponent {
       ]
     },
     {
-      'navListItemText': 'Billing',
+      'navListItemText': 'Amenities',
+      'faIcon': 'fas fa-table-tennis',
+      'subMenu': [
+        { 'navListChildItemText': 'Party Hall Booking', 'link': '/tickets/raise' },
+        { 'navListChildItemText': 'Request Parking Space', 'link': '/tickets/manage' },
+      ]
+    },
+    {
+      'navListItemText': 'Helpdesk',
+      'faIcon': 'fas fa-question-circle',
+      'subMenu': [
+        { 'navListChildItemText': 'Raise Ticket', 'link': '/tickets/raise' },
+        { 'navListChildItemText': 'View Tickets', 'link': '/tickets/manage' },
+      ]
+    },
+    {
+      'navListItemText': 'Deliveries',
+      'faIcon': 'fas fa-shopping-cart',
+      'link': '/delivery'
+    },
+    {
+      'navListItemText': 'My Bills',
       'faIcon': 'fas fa-calculator',
       'link': '/billing'
     }

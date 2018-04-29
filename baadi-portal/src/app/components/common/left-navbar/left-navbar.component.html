@@ -6,6 +6,14 @@
     </span>
   </div>
   <div class="nav-left-body">
+    <div class="apartment-name" [hidden]="!isOpen">
+      <i class="fas fa-building"></i>
+      Saritha Elegance
+      <i class="fas fa-chevron-circle-down"></i>
+    </div>
+    <div class="apartment-name-condensed" [hidden]="isOpen">
+      <i class="fas fa-building"></i>
+    </div>
     <ul class="nav-list" [ngClass]="{'nav-list-condensed': !isOpen}">
       <app-nav-list-item
         *ngFor="let navMenuItem of navMenuItems"

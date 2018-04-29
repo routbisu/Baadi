@@ -279,7 +279,7 @@ nav.nav-left {
     color: $logo-orange;
     font-size: 1.2rem;
     margin: 0 !important;
-    padding: 8px 10px 8px 20px;
+    padding: 8px 10px 8px 18px;
     transition: 0.4s;
 
     position: relative;
@@ -303,7 +303,7 @@ nav.nav-left {
   .nav-list-child-item {
     color: $logo-orange;
     font-size: 1.1rem;
-    margin: 15px 5px 15px 20px;
+    margin: 15px 5px 15px 10px;
     cursor: pointer;
   }
 }
@@ -322,7 +322,7 @@ nav.nav-left {
   }
 
   .nav-list-child {
-    padding-left: 52px;
+    padding-left: 47px;
     .nav-list-child-item {
       margin: 10px 0px;
       font-size: 0.9rem;
@@ -349,7 +349,7 @@ nav.nav-left {
   top: 12px;
   transition: all 0.3s;
   font-size: 0.9rem;
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: auto;
 
   i {
@@ -369,8 +369,9 @@ nav.nav-left {
 .form-control:focus + .form-control-placeholder,
 .form-control:valid + .form-control-placeholder {
   font-size: 75%;
-  transform: translate3d(0, -140%, 0);
-  opacity: 0.7;
+  transform: translate3d(0, -22px, 0);
+  opacity: 1;
+  color: #888 !important;
   visibility: visible;
 
   i {
