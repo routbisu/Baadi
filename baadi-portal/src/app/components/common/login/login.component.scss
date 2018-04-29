@@ -79,11 +79,32 @@
   }
 }
 
+.btn-google {
+  width: 100%;
+  padding: 10px 12px;
+  background: $google-blue;
+  color: #FFF;
+  font-size: 0.9rem;
+  margin: 10px 0px;
+
+  i.fab {
+    color: #FFF;
+    margin-right: 4px;
+    font-size: 0.8rem;
+  }
+}
+
+.or-separator {
+  text-align: center;
+  font-size: 0.8rem;
+  color: $primary-color-light;
+}
+
 .login-logo-text {
   color: #777;
   font-size: 1.3rem;
   text-align: center;
-  margin: 7px 0px 20px 0px;
+  margin: 7px 0px 25px 0px;
 }
 
 .small-light-link {

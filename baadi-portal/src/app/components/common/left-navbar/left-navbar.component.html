@@ -1,7 +1,5 @@
-<nav class="navbar nav-left"
-  [@slideInOut]
+<nav class="navbar nav-left" [@slideInOut]
   [ngClass]="{'nav-closed': !isOpen, 'nav-open-mobile': !isOpenMobile }">
-    <!-- <nav class="navbar nav-left nav-open-mobile"> -->
   <div class="nav-left-header">
     <span class="logo" [ngClass]="{'icon-display': !isOpen }">
       <img [src]="isOpen ? logoUrl: iconUrl" alt="Baadi Logo">
@@ -9,59 +7,11 @@
   </div>
   <div class="nav-left-body">
     <ul class="nav-list" [ngClass]="{'nav-list-condensed': !isOpen}">
-      <app-nav-list-item [isNavOpen]="isOpen"></app-nav-list-item>
-      <li class="nav-list-item">
-        <i class="fas fa-chart-line"></i>
-        <span class="nav-list-item-text">Analytics</span>
-      </li>
-      <li class="nav-list-item">
-        <i class="fas fa-calculator"></i>
-        <span class="nav-list-item-text">Billing</span>
-      </li>
-
-
-      <li class="nav-list-item">
-        <i class="fas fa-minus-square"></i>
-        <span class="nav-list-item-text">Deactivate Property</span>
-      </li>
-      <app-nav-list-item [isNavOpen]="isOpen"></app-nav-list-item>
-      <li class="nav-list-item">
-        <i class="fas fa-minus-square"></i>
-        <span class="nav-list-item-text">Deactivate Property</span>
-      </li>
-      <li class="nav-list-item">
-        <i class="fas fa-minus-square"></i>
-        <span class="nav-list-item-text">Deactivate Property</span>
-      </li>
-      <li class="nav-list-item">
-        <i class="fas fa-minus-square"></i>
-        <span class="nav-list-item-text">Deactivate Property</span>
-      </li>
-      <li class="nav-list-item">
-        <i class="fas fa-minus-square"></i>
-        <span class="nav-list-item-text">Deactivate Property</span>
-      </li>
-      <li class="nav-list-item">
-        <i class="fas fa-minus-square"></i>
-        <span class="nav-list-item-text">Deactivate Property</span>
-      </li>
-      <li class="nav-list-item">
-        <i class="fas fa-minus-square"></i>
-        <span class="nav-list-item-text">Deactivate Property</span>
-      </li>
-      <li class="nav-list-item">
-        <i class="fas fa-minus-square"></i>
-        <span class="nav-list-item-text">Deactivate Property</span>
-      </li>
-      <li class="nav-list-item">
-        <i class="fas fa-minus-square"></i>
-        <span class="nav-list-item-text">Deactivate Property</span>
-      </li>
-      <li class="nav-list-item">
-        <i class="fas fa-minus-square"></i>
-        <span class="nav-list-item-text">Deactivate Property</span>
-      </li>
-      <app-nav-list-item [isNavOpen]="isOpen"></app-nav-list-item>
+      <app-nav-list-item
+        *ngFor="let navMenuItem of navMenuItems"
+        [isNavOpen]="isOpen"
+        [menu]="navMenuItem"
+      ></app-nav-list-item>
     </ul>
   </div>
 </nav>

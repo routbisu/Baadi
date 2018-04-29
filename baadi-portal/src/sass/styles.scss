@@ -13,6 +13,13 @@
   padding: 0;
 }
 
+li:visited, li:active, li:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  outline-style: none !important;
+  box-shadow: none !important;
+}
+
 .row {
   margin: 0 !important;
   padding: 0 !important;
@@ -315,7 +322,6 @@ nav.nav-left {
   }
 
   .nav-list-child {
-    z-index: 5000 !important;
     padding-left: 52px;
     .nav-list-child-item {
       margin: 10px 0px;
@@ -331,3 +337,81 @@ nav.nav-left {
     font-size: 12px;
   }
 }
+
+// Form controls
+.form-group {
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.form-control-placeholder {
+  position: absolute;
+  top: 12px;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  cursor: auto;
+
+  i {
+    font-size: 0.8rem;
+    margin-right: 5px;
+  }
+
+  i.fa-check-circle {
+    color: $ok-green;
+  }
+
+  i.fa-times-circle {
+    color: $error-orange;
+  }
+}
+
+.form-control:focus + .form-control-placeholder,
+.form-control:valid + .form-control-placeholder {
+  font-size: 75%;
+  transform: translate3d(0, -140%, 0);
+  opacity: 0.7;
+  visibility: visible;
+
+  i {
+    font-size: 0.7rem;
+  }
+}
+
+.form-group > input {
+  padding: 10px 0px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid $light-grey;
+}
+
+.form-group > input:focus,
+.form-group > input:active {
+  outline: none;
+  outline-width: 0;
+  outline-style:none;
+  box-shadow:none;
+  border-color: $logo-orange-light;
+  transition: 0.3s;
+}
+
+.margin-b-0 {
+  margin-bottom: 0px;
+}
+
+.margin-b-n-5 {
+  margin-bottom: 5px;
+}
+
+.margin-b-n-10 {
+  margin-bottom: -10px;
+}
+
+// .form-group > label {
+//   font-size: 0.9rem;
+//   margin-bottom: 2px;
+//   color: #999;
+// }
+
+

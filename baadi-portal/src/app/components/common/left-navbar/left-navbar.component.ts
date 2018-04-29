@@ -30,6 +30,23 @@ import { Component, OnInit, Input, trigger, state, style, transition, group, ani
 })
 export class LeftNavbarComponent {
 
+  // List of nav menu items
+  navMenuItems: any = [
+    {
+      'navListItemText': 'Visitors',
+      'faIcon': 'fas fa-user',
+      'subMenu': [
+        { 'navListChildItemText': 'Invite Visitor', 'link': '/visitors/invite' },
+        { 'navListChildItemText': 'List Visitors', 'link': '/visitors/list' },
+      ]
+    },
+    {
+      'navListItemText': 'Billing',
+      'faIcon': 'fas fa-calculator',
+      'link': '/billing'
+    }
+  ];
+
   logoUrl = 'assets/images/logo.png';
   iconUrl = 'assets/images/icon-72.png';
 

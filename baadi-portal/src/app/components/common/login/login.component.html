@@ -1,30 +1,38 @@
 <div class="login-container">
+  <div class="card login-card">
+    <div class="card-body">
+      <div class="login-logo-image">
+        <img [src]="imageUrls.icon" alt="Baadi logo" class="login-logo-image">
+      </div>
+      <div class="login-logo-text">
+        Login to Baadi Portal
+      </div>
+      <form #form="ngForm" (ngSubmit)="login(form.value)">
+        <div class="form-group">
+          <input name="email" id="email" type="text" class="form-control" required ngModel>
+          <label class="form-control-placeholder" for="email">
+            <i class="fas fa-check-circle" hidden></i>Email address</label>
+        </div>
+        <div class="form-group">
+          <input name="password" id="password" type="password" class="form-control" required ngModel>
+          <label class="form-control-placeholder" for="password">
+            <i class="fas fa-times-circle" hidden></i>Password</label>
+        </div>
 
-    <div class="card login-card">
-      <div class="card-body">
-        <div class="login-logo-image">
-          <img [src]="imageUrls.icon" alt="Baadi logo" class="login-logo-image">
-        </div>
-        <div class="login-logo-text">
-          Login to Admin
-        </div>
-        <form #form="ngForm" (ngSubmit)="login(form.value)">
-        <!-- <app-text-box [(ngModel)]="email" [ngModelOptions]="{standalone: true}"></app-text-box> -->
-        <app-text-box name="email" [(ngModel)]="email" disabled></app-text-box>
-          <!-- <div class="form-group">
-            <label for="email">Email address</label>
-            <input name="email" type="email" class="form-control" placeholder="Email address" ngModel>
-          </div> -->
-
-          <button type="submit" class="btn btn-login">
-            <i class="fa fa-lock"></i> Login Securely
-          </button>
-        </form>
-        <div class="small-light-link">
-          <a href="#">Forgot password?</a>
-        </div>
+        <button type="submit" class="btn btn-login">
+          <i class="fa fa-lock"></i> Login Securely
+        </button>
+      </form>
+      <div class="or-separator">- or -</div>
+      <button class="btn btn-google">
+        <i class="fab fa-google"></i>
+        Login with Google
+      </button>
+      <div class="small-light-link">
+        <a href="#">Forgot password?</a>
       </div>
     </div>
+  </div>
   <div class="login-footer">
     <div class="app-store-links">
       <a href="#" title="Download the Baadi app from Google play store">

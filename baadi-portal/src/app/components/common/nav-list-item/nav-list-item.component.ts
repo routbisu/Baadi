@@ -35,6 +35,7 @@ export class NavListItemComponent implements AfterViewInit   {
 
   // Check if left navbar is open
   @Input() isNavOpen: boolean;
+  @Input() menu: any;
 
   showSubMenu = false;
   showSubMenuCondensed = false;
