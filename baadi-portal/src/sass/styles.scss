@@ -55,16 +55,16 @@ body {
   transition: 0.4s;
 
   .hamburger i {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     color: $logo-orange;
     cursor: pointer;
-    padding: 16px;
-    padding-left: 22px;
+    padding: 12px;
+    padding-left: 18px;
   }
 
   .profile-section {
     float: right;
-    padding: 9px 25px 0px 5px;
+    padding: 5px 15px 0px 5px;
     vertical-align: top;
   }
 
@@ -74,25 +74,27 @@ body {
     top: 3px;
 
     i {
-      margin-right: 15px;
-      font-size: 18px;
+      margin-right: 12px;
+      font-size: 0.9rem;
       cursor: pointer;
       color: $primary-color-light;
     }
 
     .global-search {
       color: $logo-orange;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       cursor: pointer;
       border: 1px solid $very-light-grey;
       border-radius: 3px;
-      padding: 10px 0px 10px 15px;
-      margin-right: 20px;
+      padding: 6px 0px 6px 10px;
+      margin-right: 18px;
+      position: relative;
+      top: -3px;
 
       i {
         color: $logo-orange;
-        margin: 0px 10px;
-        font-size: 13px;
+        margin: 0px 5px;
+        font-size: 0.8rem;
       }
     }
 
@@ -105,7 +107,7 @@ body {
       position: relative;
       font-size: 0.55rem;
       background: $logo-orange;
-      padding: 2px 5px;
+      padding: 1px 4px;
       border-radius: 50%;
       color: #FFF;
       left: -15px;
@@ -118,7 +120,7 @@ body {
     cursor: pointer;
 
     span {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: $logo-orange;
     }
 
@@ -128,7 +130,7 @@ body {
 
     i {
       color: $logo-orange;
-      width: 5px;
+      font-size: 0.75rem;
       margin-left: 5px;
     }
   }
@@ -175,11 +177,11 @@ nav.nav-left {
   .nav-left-header {
     background: #FFF;
     color: #FFF;
-    padding: 10px;
+    padding: 8px;
     box-shadow: -3px 0px 10px 0px #EEE;
 
     .logo img {
-      width: 100px;
+      width: 80px;
       margin-left: 6px;
       transition: 0.3s;
     }
@@ -188,16 +190,17 @@ nav.nav-left {
 
 .profile-section-handle {
   float: right;
-  padding: 9px 10px;
+  padding: 8px;
 
   img {
-    width: 90px;
-    margin-right: 8px;
+    width: 75px;
+    margin-right: 2px;
   }
 
   i.fas {
     color: $logo-orange;
     margin: 8px;
+    font-size: 0.8rem;
   }
 }
 
@@ -277,7 +280,7 @@ nav.nav-left {
   .nav-list-item {
     cursor: pointer;
     color: $logo-orange;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 0 !important;
     padding: 8px 10px 8px 18px;
     transition: 0.4s;
@@ -287,7 +290,7 @@ nav.nav-left {
     i {
       color: $logo-orange;
       margin-right: 10px;
-      font-size: 22px;
+      font-size: 0.9rem;
     }
   }
 
@@ -302,8 +305,8 @@ nav.nav-left {
   margin-top: 10px;
   .nav-list-child-item {
     color: $logo-orange;
-    font-size: 1.1rem;
-    margin: 15px 5px 15px 10px;
+    font-size: 0.9rem;
+    margin: 15px;
     cursor: pointer;
   }
 }
@@ -311,11 +314,11 @@ nav.nav-left {
 @media (min-width: 576px) {
   .nav-list {
     .nav-list-item {
-      font-size: 1rem;
+      font-size: 0.9rem;
       margin: 10px 0px;
 
       i {
-        font-size: 16px;
+        font-size: 13px;
       }
     }
     padding-bottom: 20px;
@@ -325,7 +328,7 @@ nav.nav-left {
     padding-left: 47px;
     .nav-list-child-item {
       margin: 10px 0px;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
   }
 }
