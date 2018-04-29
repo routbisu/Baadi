@@ -2,14 +2,14 @@
   <div class="card login-card">
     <div class="card-body">
       <div class="login-logo-image">
-        <img [src]="imageUrls.icon" alt="Baadi logo" class="login-logo-image">
+        <img [src]="imageUrls.icon" alt="Baadi logo">
       </div>
       <div class="login-logo-text">
         Login to Baadi Portal
       </div>
       <form #form="ngForm" (ngSubmit)="login(form.value)">
         <div class="form-group">
-          <input name="email" id="email" type="text" class="form-control" required ngModel>
+          <input name="email" id="email" type="text" class="form-control" autofocus="autofocus" required ngModel>
           <label class="form-control-placeholder" for="email">
             <i class="fas fa-check-circle" hidden></i>Email address</label>
         </div>

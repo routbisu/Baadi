@@ -327,13 +327,14 @@ nav.nav-left {
 .form-group {
   position: relative;
   padding-bottom: 6px;
+  margin-bottom: 12px;
 }
 
 .form-control-placeholder {
   position: absolute;
   top: 12px;
   transition: all 0.3s;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   opacity: 0.6;
   cursor: auto;
 
@@ -351,22 +352,9 @@ nav.nav-left {
   }
 }
 
-.form-control:focus + .form-control-placeholder,
-.form-control:valid + .form-control-placeholder {
-  font-size: 75%;
-  transform: translate3d(0, -22px, 0);
-  opacity: 1;
-  color: #888 !important;
-  visibility: visible;
-
-  i {
-    font-size: 0.7rem;
-  }
-}
-
 .form-group > input {
   padding: 10px 0px;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   border: none;
   border-radius: 0;
   border-bottom: 1px solid $light-grey;
@@ -376,10 +364,23 @@ nav.nav-left {
 .form-group > input:active {
   outline: none;
   outline-width: 0;
-  outline-style:none;
-  box-shadow:none;
+  outline-style: none;
+  box-shadow: none;
   border-color: $logo-orange-light;
   transition: 0.3s;
+}
+
+.form-control:focus + .form-control-placeholder,
+.form-control:valid + .form-control-placeholder {
+  font-size: 0.65rem;
+  transform: translate3d(0, -22px, 0);
+  opacity: 1;
+  color: #888 !important;
+  visibility: visible;
+
+  i {
+    font-size: 0.7rem;
+  }
 }
 
 .margin-b-0 {

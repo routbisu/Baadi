@@ -15,7 +15,7 @@
   margin: auto;
   border-radius: 0px;
   -moz-border-radius: 0px;
-  padding: 10px 20px;
+  padding: 8px 15px;
   border: none;
   box-shadow: $light-grey 0px 0px 20px 3px;
 }
@@ -23,10 +23,14 @@
 .login-logo-image {
   text-align: center;
   margin-bottom: 10px;
+
+  img {
+    width: 50px;
+  }
 }
 
 .login-logo-image-light > img {
-  width: 70px;
+  width: 60px;
 }
 
 .login-logo-desc-text {
@@ -66,11 +70,11 @@
 
 .btn-login {
   width: 100%;
-  padding: 10px 12px;
+  padding: 8px 10px;
   background: $logo-orange;
   color: #FFF;
-  font-size: 0.9rem;
-  margin: 10px 0px;
+  font-size: 0.8rem;
+  margin: 8px 0px;
 
   i.fa {
     color: #FFF;
@@ -81,11 +85,11 @@
 
 .btn-google {
   width: 100%;
-  padding: 10px 12px;
+  padding: 8px 10px;
   background: $google-blue;
   color: #FFF;
-  font-size: 0.9rem;
-  margin: 10px 0px;
+  font-size: 0.8rem;
+  margin: 8px 0px;
 
   i.fab {
     color: #FFF;
@@ -96,13 +100,13 @@
 
 .or-separator {
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: $primary-color-light;
 }
 
 .login-logo-text {
   color: #777;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   text-align: center;
   margin: 7px 0px 25px 0px;
 }
@@ -112,7 +116,7 @@
 
   a {
     text-decoration: none !important;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: $primary-color-light;
   }
 }
