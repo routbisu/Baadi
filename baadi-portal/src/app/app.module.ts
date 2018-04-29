@@ -12,6 +12,8 @@ import { TopNavbarComponent } from './components/common/top-navbar/top-navbar.co
 import { MobileProfileSectionComponent } from './components/common/mobile-profile-section/mobile-profile-section.component';
 import { NavListItemComponent } from './components/common/nav-list-item/nav-list-item.component';
 import { HomeComponent } from './components/pages/home/home.component';
+import { RaiseTicketComponent } from './components/pages/raise-ticket/raise-ticket.component';
+import { ManageTicketsComponent } from './components/pages/manage-tickets/manage-tickets.component';
 
 // List of routes used in the application
 const appRoutes = [
@@ -19,16 +21,14 @@ const appRoutes = [
   { path: '', component: HomeComponent, data: { breadcrumb: 'Home' } },
   // Login Page
   { path: 'login', component: LoginComponent },
-  // Super Admin - Billing
-  // { path: 'billing', component: SaBillingComponent, data: { breadcrumb: 'Billing' } },
-  // Onboarding
-  { path: 'onboarding', data: { breadcrumb: 'Onboarding' },
+  // Helpdesk
+  { path: 'tickets', data: { breadcrumb: 'Helpdesk' },
     children: [
       // Add a new apartment
-      // { path: 'add', component: AddApartmentComponent, data: { breadcrumb: 'Add Apartment' } },
-      // { path: 'manage', component: ManageApartmentComponent, data: { breadcrumb: 'Manage Apartments' } }
+      { path: 'raise', component: RaiseTicketComponent, data: { breadcrumb: 'Raise Ticket' } },
+      { path: 'manage', component: ManageTicketsComponent, data: { breadcrumb: 'Manage Tickets' } }
     ]
-  },
+  }
   // Catch all route for undefined routes
   // { path: '**', component: SaHomeComponent, data: { breadcrumb: 'Home' } }
 ];
@@ -42,7 +42,9 @@ const appRoutes = [
     TopNavbarComponent,
     MobileProfileSectionComponent,
     NavListItemComponent,
-    HomeComponent
+    HomeComponent,
+    RaiseTicketComponent,
+    ManageTicketsComponent
   ],
   imports: [
     BrowserModule,

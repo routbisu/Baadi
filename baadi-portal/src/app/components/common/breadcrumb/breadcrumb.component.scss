@@ -1,10 +1,39 @@
 @import '../../../../sass/variables';
 @import '../../../../sass/mixins';
 
+// .bread-crumb {
+//   font-size: 0.8rem;
+//   span a {
+//     text-decoration: none;
+//     color: $logo-orange;
+//   }
+// }
+
+.page-heading {
+  color: $logo-orange;
+  font-size: 1.1rem;
+  padding-left: 20px !important;
+}
+
 .bread-crumb {
   font-size: 0.8rem;
-  span a {
-    text-decoration: none;
-    color: $logo-orange;
+  padding-left: 20px !important;
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: none;
+  span {
+    color: #999 !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .bread-crumb {
+    text-align: right;
+    margin-top: 3px;
+    cursor: pointer;
+    padding-right: 20px !important;
+    span {
+      color: #999 !important;
+    }
   }
 }

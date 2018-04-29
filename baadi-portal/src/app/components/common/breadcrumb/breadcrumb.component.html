@@ -1,10 +1,10 @@
 <div class="page-heading-section">
-  <div class="row">
-    <div class="col-xs-12 col-md-6 page-heading">{{ heading }}</div>
-    <div class="bread-crumb col-xs-12 col-md-6" *ngIf="breadcrumbs.length > 1">
+  <div class="row no-gutters">
+    <div class="col-md-6 page-heading">{{ heading }}</div>
+    <div class="bread-crumb col-md-6" *ngIf="breadcrumbs.length > 1">
       <span class="bread-crumb-item" *ngFor="let breadcrumb of breadcrumbs; let last = last">
-          <a [routerLink]="[breadcrumb.url, breadcrumb.params]">{{ breadcrumb.label }}</a>
-          <span *ngIf="!last"> / </span>
+          {{ breadcrumb.label }}
+        <span *ngIf="!last"> / </span>
       </span>
     </div>
   </div>
