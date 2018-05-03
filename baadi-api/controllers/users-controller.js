@@ -44,7 +44,9 @@ router.post('/authenticate', function(req, res) {
  */
 router.post('/refresh_token', function(req, res) {
     try {
-        let response = authService.RefreshToken(req.body.token);
+        // Extract token from token string
+        let oldToken = req.body.token.split(' ')[1];
+        let response = authService.RefreshToken(oldToken);
         res.json(response);
     } catch(ex) {
         log.Fatal(ex.message, 'users-controller' , 'RefreshToken');
