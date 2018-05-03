@@ -60,11 +60,10 @@ const authenticationService = {
                     user.comparePassword(userDetails.Password).then(isMatch => {
                         if(isMatch) {
                             // Create the access token
-                            // Expiry = 1 month
                             let JWTToken = jwt.sign(
                                 { UserId: user._id, EmailId: user.EmailId, UserRole: user.UserRole }, 
                                 appConfig.PASSPORT_SECRET, 
-                                { expiresIn: 43200 });
+                                { expiresIn: appConfig.TOKEN_VALIDITY });
                             
                             resolve({ token: 'Bearer ' + JWTToken });
                         }
@@ -74,7 +73,9 @@ const authenticationService = {
                 }
             );
         });
-    }
+    },
+
+    RefreshToken: function() {}
 }
 
 module.exports = authenticationService;

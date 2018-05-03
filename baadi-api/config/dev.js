@@ -39,6 +39,10 @@ const serverPort = 5000;
 // Generic server error message
 const genericServerError = 'There was an unexpected error. Please contact info@baadi.in for assistance.';
 
+// JWT token validity in seconds
+// 900 seconds = 15 mins
+const tokenValidity = 15000;
+
 // Node file logger configuration
 const nodeFileLoggerOptions = {
     timeZone: 'America/Los_Angeles',
@@ -62,7 +66,8 @@ const appConfig = {
     PASSPORT_SECRET: passportSecret,
     SERVER_PORT: serverPort,
     LOGGER_OPTIONS: nodeFileLoggerOptions,
-    GENERIC_SERVER_ERROR_MSG: genericServerError
+    GENERIC_SERVER_ERROR_MSG: genericServerError,
+    TOKEN_VALIDITY: tokenValidity
 }
 
 module.exports = appConfig;

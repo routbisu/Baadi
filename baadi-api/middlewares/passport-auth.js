@@ -12,13 +12,14 @@ const userModel     = require('../models/user');
  * @param {passport} passport - This is the passport instance
  */
 module.exports = function(passport) {
-    var options = {
-        jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Bearer'),
+
+    const options = {
+        jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
         secretOrKey: appConfig.PASSPORT_SECRET
     };
 
-    var jwtStrategy = new JwtStrategy(options, function(jwtPayload, next) {
-        userModel.findOne({_id: jwtPayload.user_id}, function(err, user) {
+    const jwtStrategy = new JwtStrategy(options, function(jwtPayload, next) {
+        userModel.findOne({ EmailId: jwtPayload.EmailId }, function(err, user) {
             if (err) {
                 throw err;
                 return next(err, user);
@@ -32,5 +33,5 @@ module.exports = function(passport) {
         });
     });
 
-    passport.use(jwtStrategy);
+    passport.use('jwt', jwtStrategy);
 };

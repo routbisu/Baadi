@@ -3,6 +3,7 @@ const passport      = require('passport');
 const authService   = require('../services/auth-service');
 const log           = require('node-file-logger');
 const appConfig     = require('../app-config');
+const jwt           = require('jsonwebtoken');
 
 /**
  * Register a new user
@@ -33,20 +34,23 @@ router.post('/authenticate', function(req, res) {
         }, err => {
             res.status(400).json(err);
         });
-
-        // authService.AuthenticateUser({
-        //     email_id: req.body.EmailID,
-        //     password: req.body.Password
-        // }, function(err, status) {
-        //     if(!err) {
-        //         res.json(status)
-        //     }
-        //     else {
-        //         res.json(err);
-        //     }
-        // });
     } catch(ex) {
         log.Fatal(ex.message, 'users-controller' , 'AuthenticateUser');
+        res.status(500).send(appConfig.GENERIC_SERVER_ERROR_MSG);
+    }
+});
+
+/**
+ * Refresh the JWT token to continue access 
+ */
+router.post('/refresh_token', function(req, res) {
+    try {
+        // 
+        // console.log(req.body.token);
+        var decoded = jwt.verify(req.body.token, 'LifeAfterYou', { ignoreExpiration: true });
+        console.log(decoded);
+    } catch(ex) {
+        log.Fatal(ex.message, 'users-controller' , 'RefreshToken');
         res.status(500).send(appConfig.GENERIC_SERVER_ERROR_MSG);
     }
 });
