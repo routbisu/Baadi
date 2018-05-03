@@ -41,7 +41,11 @@ const genericServerError = 'There was an unexpected error. Please contact info@b
 
 // JWT token validity in seconds
 // 900 seconds = 15 mins
-const tokenValidity = 15000;
+const tokenValidity = 10;
+
+// JWT Grace period in seconds
+// 604800 seconds = 1 week
+const tokenGracePeriod = 30;
 
 // Node file logger configuration
 const nodeFileLoggerOptions = {
@@ -67,7 +71,8 @@ const appConfig = {
     SERVER_PORT: serverPort,
     LOGGER_OPTIONS: nodeFileLoggerOptions,
     GENERIC_SERVER_ERROR_MSG: genericServerError,
-    TOKEN_VALIDITY: tokenValidity
+    TOKEN_VALIDITY: tokenValidity,
+    TOKEN_GRACE_PERIOD: tokenGracePeriod
 }
 
 module.exports = appConfig;

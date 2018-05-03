@@ -1,7 +1,9 @@
-const bcrypt            = require('bcrypt');
-const jwt               = require('jsonwebtoken');
-const appConfig         = require('../app-config');
-const validator         = require('./validation-service');
+const bcrypt        = require('bcrypt');
+const jwt           = require('jsonwebtoken');
+const appConfig     = require('../app-config');
+const validator     = require('./validation-service');
+const log           = require('node-file-logger');
+const moment        = require('moment');
 
 // Get user mongoose model
 const UserModel = require('../models/user');
@@ -75,7 +77,50 @@ const authenticationService = {
         });
     },
 
-    RefreshToken: function() {}
+    /**
+     * Request for refreshing the JWT token
+     * If the token is within grace period, then refresh it and send back the new token,
+     * or else return an error
+     * @param {string} oldToken - Old JWT Token
+     * @return {any} Status & New Token
+     */
+    RefreshToken: function(oldToken) {
+        try {
+            var decodedPayload = jwt.verify(oldToken, appConfig.PASSPORT_SECRET, { ignoreExpiration: true });
+            // Check if the token is still within graceperiod
+            let currentTime = moment().unix();
+            if (currentTime - decodedPayload.exp < appConfig.TOKEN_GRACE_PERIOD) {
+                let JWTToken = jwt.sign (
+                    { 
+                        UserId: decodedPayload.UserId, 
+                        EmailId: decodedPayload.EmailId, 
+                        UserRole: decodedPayload.UserRole 
+                    }, 
+                    appConfig.PASSPORT_SECRET, 
+                    { 
+                        expiresIn: appConfig.TOKEN_VALIDITY 
+                    }
+                );
+
+                return {
+                    status: 'SUCCESS',
+                    token: 'Bearer ' + JWTToken
+                };
+            } else {
+                return {
+                    status: 'GRACE_PERIOD_EXPIRED',
+                    token: ''
+                };
+            }
+        } catch(ex) {
+            log.Error(ex.message, 'authService' , 'RefreshToken');
+            // If invalid token (or modified token) is passed
+            return {
+                status: 'INVALID_TOKEN',
+                token: ''
+            };
+        }
+    }
 }
 
 module.exports = authenticationService;

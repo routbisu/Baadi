@@ -3,7 +3,6 @@ const passport      = require('passport');
 const authService   = require('../services/auth-service');
 const log           = require('node-file-logger');
 const appConfig     = require('../app-config');
-const jwt           = require('jsonwebtoken');
 
 /**
  * Register a new user
@@ -45,10 +44,8 @@ router.post('/authenticate', function(req, res) {
  */
 router.post('/refresh_token', function(req, res) {
     try {
-        // 
-        // console.log(req.body.token);
-        var decoded = jwt.verify(req.body.token, 'LifeAfterYou', { ignoreExpiration: true });
-        console.log(decoded);
+        let response = authService.RefreshToken(req.body.token);
+        res.json(response);
     } catch(ex) {
         log.Fatal(ex.message, 'users-controller' , 'RefreshToken');
         res.status(500).send(appConfig.GENERIC_SERVER_ERROR_MSG);
