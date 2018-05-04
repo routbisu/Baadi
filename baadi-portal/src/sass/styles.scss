@@ -1,5 +1,5 @@
 // Import third party libraries
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css);
 
 // Import variables and mixins
@@ -166,7 +166,7 @@ nav.nav-left {
   .nav-left-header {
     background: #FFF;
     color: #FFF;
-    padding: 8px;
+    padding: 8px 10px;
     padding-bottom: 7px;
     //box-shadow: -3px 0px 10px 0px #EEE;
     border-bottom: 1px solid $light-border;
@@ -276,7 +276,11 @@ nav.nav-left {
     i {
       color: $logo-orange;
       margin-right: 10px;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+    }
+
+    i.chevron {
+      font-size: 0.6rem !important;
     }
   }
 
@@ -389,6 +393,29 @@ nav.nav-left {
   i {
     font-size: 0.7rem;
   }
+}
+
+.error-label {
+  color: $error-label-color;
+  font-size: 0.7rem;
+}
+
+.invalid-state {
+  border-bottom: 1px solid $error-label-color !important;
+}
+
+.error-message {
+  font-size: 0.7rem;
+  text-align: center;
+  color: $error-label-color;
+  i {
+    color: $error-label-color;
+    margin-right: 5px;
+  }
+}
+
+.margin-t--10 {
+  margin-top: -10px;
 }
 
 .margin-b-0 {

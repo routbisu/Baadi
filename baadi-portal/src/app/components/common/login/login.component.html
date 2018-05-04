@@ -7,18 +7,22 @@
       <div class="login-logo-text">
         Login to Baadi Portal
       </div>
-      <form #form="ngForm" (ngSubmit)="login(form.value)">
+      <form #form="ngForm" (ngSubmit)="emailLogin(form.value)">
         <div class="form-group">
-          <input name="email" id="email" type="text" class="form-control" autofocus="autofocus" required ngModel>
-          <label class="form-control-placeholder" for="email">
-            <i class="fas fa-check-circle" hidden></i>Email address</label>
+          <input name="EmailId" id="email" type="text" class="form-control" autofocus="autofocus" required ngModel
+            [ngClass]="{ 'invalid-state': invalidEmail }">
+          <label class="form-control-placeholder" for="email">Email address</label>
+          <span class="error-label" *ngIf="invalidEmail">Please enter a valid Email address</span>
         </div>
         <div class="form-group">
-          <input name="password" id="password" type="password" class="form-control" required ngModel>
-          <label class="form-control-placeholder" for="password">
-            <i class="fas fa-times-circle" hidden></i>Password</label>
+          <input name="Password" id="password" type="password" class="form-control"
+            [ngClass]="{ 'invalid-state': invalidPassword }" required ngModel>
+          <label class="form-control-placeholder" for="password">Password</label>
+          <span class="error-label" *ngIf="invalidPassword">Password should be minimum 6 characters</span>
         </div>
-
+        <div class="error-message margin-t--10" *ngIf="errorMessageText">
+          <i class="fas fa-exclamation-circle"></i>{{ errorMessageText }}
+        </div>
         <button type="submit" class="btn btn-login">
           <i class="fa fa-lock"></i> Login Securely
         </button>

@@ -39,6 +39,12 @@ export class LeftNavbarComponent {
       'link': '/'
     },
     {
+      'navListItemText': 'Notice Board',
+      'faIcon': 'fas fa-exclamation-circle',
+      'faIconColor': '#FF3C7E',
+      'link': '/notices'
+    },
+    {
       'navListItemText': 'Visitors',
       'faIcon': 'fas fa-user',
       'faIconColor': '#3BA9F4',
@@ -76,6 +82,12 @@ export class LeftNavbarComponent {
       'faIcon': 'fas fa-calculator',
       'faIconColor': '#FF9800',
       'link': '/billing'
+    },
+    {
+      'navListItemText': 'Resident Directory',
+      'faIcon': 'fas fa-book',
+      'faIconColor': '#626262',
+      'link': '/residents'
     }
   ];
 

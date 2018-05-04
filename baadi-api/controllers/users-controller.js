@@ -31,7 +31,7 @@ router.post('/authenticate', function(req, res) {
         authService.AuthenticateUser(req.body).then((token) => {
             res.json(token);
         }, err => {
-            res.status(400).json(err);
+            res.json(err);
         });
     } catch(ex) {
         log.Fatal(ex.message, 'users-controller' , 'AuthenticateUser');
