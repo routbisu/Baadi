@@ -20,18 +20,6 @@ module.exports = function(passport) {
 
     const jwtStrategy = new JwtStrategy(options, function(jwtPayload, next) {
         return next(null, jwtPayload);
-        // userModel.findOne({ EmailId: jwtPayload.EmailId }, function(err, user) {
-        //     if (err) {
-        //         throw err;
-                
-        //     }
-        //     if (user) {
-        //         next(null, user);
-        //     }
-        //     else {
-        //         next(null, false);
-        //     }
-        // });
     });
 
     passport.use('jwt', jwtStrategy);

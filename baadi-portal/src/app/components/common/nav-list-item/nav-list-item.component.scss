@@ -5,7 +5,8 @@ div.nav-list-child-condensed {
   background: #fff;
   border: 1px solid #eaeaea;
   border-left: none;
-  box-shadow: 1px 1px 4px #EEE;
+  //box-shadow: 1px 1px 4px #EEE;
+  border-bottom: 1px solid $light-border;
   width: 250px;
   padding: 0;
   position: fixed;

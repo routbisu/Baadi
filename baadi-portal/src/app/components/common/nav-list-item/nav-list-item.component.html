@@ -3,7 +3,7 @@
   (mouseenter)="toggleChildCondensed()"
   (mouseleave)="toggleChildCondensed(true)"
   [routerLink]="menu.link">
-  <i [ngClass]="menu.faIcon"></i>
+  <i [ngClass]="menu.faIcon" [ngStyle]="{ color: menu.faIconColor }"></i>
   <span class="nav-list-item-text">{{ menu.navListItemText }}</span>
   <span class="list-chevron" *ngIf="menu.subMenu">
     <i class="fas chevron" [ngClass]="chevronDirection"></i>

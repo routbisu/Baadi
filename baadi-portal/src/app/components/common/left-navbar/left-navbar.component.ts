@@ -35,11 +35,13 @@ export class LeftNavbarComponent {
     {
       'navListItemText': 'Home',
       'faIcon': 'fas fa-home',
+      'faIconColor': '#A44EAF',
       'link': '/'
     },
     {
       'navListItemText': 'Visitors',
       'faIcon': 'fas fa-user',
+      'faIconColor': '#3BA9F4',
       'subMenu': [
         { 'navListChildItemText': 'Invite Visitor', 'link': '/visitors/invite' },
         { 'navListChildItemText': 'List Visitors', 'link': '/visitors/list' },
@@ -48,6 +50,7 @@ export class LeftNavbarComponent {
     {
       'navListItemText': 'Amenities',
       'faIcon': 'fas fa-table-tennis',
+      'faIconColor': '#F44336',
       'subMenu': [
         { 'navListChildItemText': 'Party Hall Booking', 'link': '/tickets/raise' },
         { 'navListChildItemText': 'Request Parking Space', 'link': '/tickets/manage' },
@@ -56,6 +59,7 @@ export class LeftNavbarComponent {
     {
       'navListItemText': 'Helpdesk',
       'faIcon': 'fas fa-question-circle',
+      'faIconColor': '#4CAF50',
       'subMenu': [
         { 'navListChildItemText': 'Raise Ticket', 'link': '/tickets/raise' },
         { 'navListChildItemText': 'View Tickets', 'link': '/tickets/manage' },
@@ -64,11 +68,13 @@ export class LeftNavbarComponent {
     {
       'navListItemText': 'Deliveries',
       'faIcon': 'fas fa-shopping-cart',
+      'faIconColor': '#3F51B5',
       'link': '/delivery'
     },
     {
       'navListItemText': 'My Bills',
       'faIcon': 'fas fa-calculator',
+      'faIconColor': '#FF9800',
       'link': '/billing'
     }
   ];
