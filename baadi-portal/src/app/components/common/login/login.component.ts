@@ -51,18 +51,18 @@ export class LoginComponent {
   emailLogin(value) {
     if (this.performValidation(value)) {
       this.authService.emailLogin(value).subscribe(data => {
-        if (data.ErrorMessage) {
-          switch (data.ErrorMessage) {
-            case 'USER_NOT_FOUND':
-              this.errorMessageText = 'This EmailId was not found in our records';
-              break;
+        // if (data.ErrorMessage) {
+        //   switch (data.ErrorMessage) {
+        //     case 'USER_NOT_FOUND':
+        //       this.errorMessageText = 'This EmailId was not found in our records';
+        //       break;
 
-            case 'INCORRECT_PASSWORD':
-              this.errorMessageText = 'Incorrect password';
-          }
-        } else {
+        //     case 'INCORRECT_PASSWORD':
+        //       this.errorMessageText = 'Incorrect password';
+        //   }
+        // } else {
 
-        }
+        // }
       });
     }
   }
