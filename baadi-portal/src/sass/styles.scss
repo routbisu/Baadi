@@ -289,9 +289,10 @@ nav.nav-left {
 .nav-list-child {
   list-style: none;
   margin-top: 10px;
+  padding-left: 33px;
   .nav-list-child-item {
     color: $logo-orange;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     margin: 15px;
     cursor: pointer;
   }
