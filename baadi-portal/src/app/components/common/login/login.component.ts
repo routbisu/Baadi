@@ -1,5 +1,6 @@
 import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,10 @@ export class LoginComponent {
     logo: 'assets/images/logo-bg.png'
   };
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   private resetValidation() {
     this.invalidEmail = false;
@@ -62,7 +66,8 @@ export class LoginComponent {
           }
         } else {
           // Successful login
-          this.authService.saveToken(data.token);
+          this.authService.saveToken(data);
+          this.router.navigateByUrl('');
         }
       });
     }

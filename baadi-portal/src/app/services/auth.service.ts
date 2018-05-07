@@ -1,5 +1,5 @@
 import { environment } from './../../environments/environment';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -8,7 +8,21 @@ export class AuthService {
 
   emaiLoginUrl = environment.apiBaseUrl + 'authenticate';
 
-  constructor(private http: Http) { }
+  // Flag to denote if an user is authenticated
+  public _isAuthenticated: boolean;
+  private _timeoutHandle;
+
+  constructor(private http: Http) {
+    this.refreshToken();
+  }
+
+  refreshToken(continueInterval = true) {
+    // Recursively refresh access token at specified intervals
+    let timerId = setTimeout(function tick() {
+      console.log('Timer ran');
+      timerId = setTimeout(tick, 2000);
+    }, 2000);
+  }
 
   /**
    * Email based login system
@@ -19,34 +33,27 @@ export class AuthService {
       .map(res => res.json());
   }
 
+  checkToken() {
+
+  }
+
   /**
    * Save generated JWT token in localstorage
-   * @param response 
+   * @param response
    */
   saveToken(response) {
+    this._isAuthenticated = true;
     localStorage.setItem('access_token', response.token);
-  
+
     // Store other information about the user
-    const _user = response.user
-    if (_user) {
-      localStorage.setItem('__userinfo_id', _user._id);
-      localStorage.setItem('__userinfo_name', (_user.FirstName || '') + (_user.LastName || ''));
-      localStorage.setItem('__userinfo_short_name', _user.LastName || '');
-      localStorage.setItem('__userinfo_email_id', _user.EmailId);
-      localStorage.setItem('__userinfo_role', _user.UserRole);
-    }
-    
+    localStorage.setItem('__userinfo_user_id', response.user_id);
+    localStorage.setItem('__userinfo_name', (response.first_name || '') + (response.last_name || ''));
+    localStorage.setItem('__userinfo_short_name', response.last_name || '');
+    localStorage.setItem('__userinfo_email_id', response.email_id);
+    localStorage.setItem('__userinfo_role', response.user_role);
   }
 
   fetchToken() {
-
-  }
-
-  refreshToken() {
-
-  }
-
-  checkToken() {
-
+    return localStorage.getItem('access_token');
   }
 }

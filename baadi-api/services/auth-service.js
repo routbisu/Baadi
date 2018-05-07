@@ -72,6 +72,7 @@ const authenticationService = {
                                 user_id: user['_id'],
                                 first_name: user['FirstName'],
                                 last_name: user['LastName'],
+                                email_id: user['EmailId'],
                                 user_role: user['UserRole'],
                                 user_status: user['IsActive']
                             });
