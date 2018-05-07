@@ -67,7 +67,14 @@ const authenticationService = {
                                 appConfig.PASSPORT_SECRET, 
                                 { expiresIn: appConfig.TOKEN_VALIDITY });
                             
-                            resolve({ token: 'Bearer ' + JWTToken });
+                            resolve({ 
+                                token: 'Bearer ' + JWTToken,
+                                user_id: user['_id'],
+                                first_name: user['FirstName'],
+                                last_name: user['LastName'],
+                                user_role: user['UserRole'],
+                                user_status: user['IsActive']
+                            });
                         }
                     }, err => {
                         reject({ ErrorMessage: 'INCORRECT_PASSWORD' });
