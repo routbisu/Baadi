@@ -20,8 +20,8 @@ export class AuthService {
     // Recursively refresh access token at specified intervals
     let timerId = setTimeout(function tick() {
       console.log('Timer ran');
-      timerId = setTimeout(tick, 2000);
-    }, 2000);
+      timerId = setTimeout(tick, 200000);
+    }, 200000);
   }
 
   /**

@@ -1,0 +1,29 @@
+@import '~sass/variables';
+
+table {
+    font-size: 0.85rem;
+    border: 1px solid $light-border;
+
+    td, th {
+        padding: 8px;
+        border: 1px solid $light-border;
+    }
+
+    th {
+        color: $logo-orange;
+        cursor: pointer;
+        background: $highly-light-grey;
+        white-space: nowrap;
+    }
+
+    tr:hover:not(th) {
+        background: $highly-light-grey;
+    }
+
+    td {
+        color: #666;
+        font-size: 0.8rem;
+    }
+
+}
+

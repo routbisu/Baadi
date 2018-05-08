@@ -248,7 +248,7 @@ nav.nav-left {
 .page-content {
   background: #FFF;
   margin: 10px;
-  padding: 10px 20px;
+  padding: 15px;
   //box-shadow: -3px 0px 10px 0px #EEE;
   border: 1px solid $light-border;
 }
@@ -436,4 +436,10 @@ nav.nav-left {
 //   color: #999;
 // }
 
+// Styles for AG-Grid
+.ag-body-viewport {
+  overflow-y: hidden;
+}
 
+.ag-body-container {
+}

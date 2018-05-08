@@ -8,6 +8,20 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class ManageTicketsComponent implements OnInit {
 
+  columnDefs = [
+    { headerName: 'Date', field: 'date' },
+    { headerName: 'Subject', field: 'subject' },
+    { headerName: 'Status', field: 'status'},
+    { headerName: 'Assigned To', field: 'assigned'}
+  ];
+
+  rowData = [
+    { date: '08-May-2018', subject: 'Leaking Water', status: 'pending', assigned: 'Raghu S' },
+    { date: '08-May-2018', subject: 'Leaking Water', status: 'pending', assigned: 'Raghu S' },
+    { date: '08-May-2018', subject: 'Leaking Water', status: 'pending', assigned: 'Raghu S' },
+    { date: '08-May-2018', subject: 'Leaking Water', status: 'pending', assigned: 'Raghu S' }
+  ];
+
   constructor(private authService: AuthService) { }
 
   ngOnInit() {

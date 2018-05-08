@@ -16,6 +16,7 @@ import { NavListItemComponent } from './components/common/nav-list-item/nav-list
 import { HomeComponent } from './components/pages/home/home.component';
 import { RaiseTicketComponent } from './components/pages/raise-ticket/raise-ticket.component';
 import { ManageTicketsComponent } from './components/pages/manage-tickets/manage-tickets.component';
+import { BdGridComponent } from './components/common/bd-grid/bd-grid.component';
 
 // List of routes used in the application
 const appRoutes = [
@@ -46,7 +47,8 @@ const appRoutes = [
     NavListItemComponent,
     HomeComponent,
     RaiseTicketComponent,
-    ManageTicketsComponent
+    ManageTicketsComponent,
+    BdGridComponent
   ],
   imports: [
     BrowserModule,
