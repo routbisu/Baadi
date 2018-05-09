@@ -1,5 +1,6 @@
 // Import third party libraries
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css);
 
 // Import variables and mixins
@@ -11,9 +12,10 @@
   color: $primary-color;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
 }
 
-li:visited, li:active, li:focus {
+li:visited, li:active, li:focus, button:visited, button:active, button:focus {
   outline: none !important;
   outline-width: 0 !important;
   outline-style: none !important;
@@ -57,7 +59,7 @@ body {
 
   .hamburger i {
     font-size: 1.35rem;
-    color: $logo-orange;
+    color: $logo-color;
     cursor: pointer;
     padding: 12px;
     padding-left: 18px;
@@ -107,7 +109,7 @@ body {
     .notification-numbers {
       position: relative;
       font-size: 0.55rem;
-      background: $logo-orange;
+      background: $logo-color;
       padding: 1px 4px;
       border-radius: 50%;
       color: #FFF;
@@ -130,7 +132,7 @@ body {
     }
 
     i {
-      color: $logo-orange;
+      color: $logo-color;
       font-size: 0.75rem;
       margin-left: 5px;
     }
@@ -189,7 +191,7 @@ nav.nav-left {
   }
 
   i.fas {
-    color: $logo-orange;
+    color: $logo-color;
     margin: 8px;
     font-size: 0.8rem;
   }
@@ -201,11 +203,11 @@ nav.nav-left {
   padding: 10px 10px 10px 15px;
   background: #FFF;
   border-radius: 3px;
-  color: $logo-orange;
+  color: $logo-color;
   font-size: 0.8rem;
 
   i {
-    color: $logo-orange;
+    color: $logo-color;
   }
 }
 
@@ -217,7 +219,7 @@ nav.nav-left {
   }
 
   .nav-list-item:hover {
-    background: $logo-orange !important;
+    background: $logo-color !important;
     i {
       color: #FFF !important;
     }
@@ -265,7 +267,7 @@ nav.nav-left {
 
   .nav-list-item {
     cursor: pointer;
-    color: $logo-orange;
+    color: $logo-color;
     font-size: 1rem;
     margin: 0 !important;
     padding: 8px 10px 8px 18px;
@@ -274,7 +276,7 @@ nav.nav-left {
     position: relative;
 
     i {
-      color: $logo-orange;
+      color: $logo-color;
       margin-right: 10px;
       font-size: 0.8rem;
     }
@@ -295,7 +297,7 @@ nav.nav-left {
   margin-top: 10px;
   padding-left: 33px;
   .nav-list-child-item {
-    color: $logo-orange;
+    color: $logo-color;
     font-size: 0.85rem;
     margin: 15px;
     cursor: pointer;
@@ -378,7 +380,7 @@ nav.nav-left {
   outline-width: 0;
   outline-style: none;
   box-shadow: none;
-  border-color: $logo-orange-light;
+  border-color: $logo-color-light;
   transition: 0.3s;
 }
 
@@ -436,10 +438,6 @@ nav.nav-left {
 //   color: #999;
 // }
 
-// Styles for AG-Grid
-.ag-body-viewport {
-  overflow-y: hidden;
-}
-
-.ag-body-container {
+.clearfix {
+  clear: both;
 }

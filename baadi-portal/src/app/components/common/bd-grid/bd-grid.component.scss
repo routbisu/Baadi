@@ -1,29 +1,163 @@
 @import '~sass/variables';
+@import '~sass/mixins';
+
+// Variables
+$pagination-btn-text-color: #666;
+$pagination-btn-border-color: #DDD;
 
 table {
     font-size: 0.85rem;
     border: 1px solid $light-border;
+    margin: 5px 0px;
 
     td, th {
-        padding: 8px;
+        padding: 7px 9px;
         border: 1px solid $light-border;
+        white-space: nowrap;
     }
 
     th {
-        color: $logo-orange;
         cursor: pointer;
         background: $highly-light-grey;
         white-space: nowrap;
+
+        .header-text, .sort-icon {
+            display: inline-block;
+        }
+
+        i {
+            font-size: 0.7rem;
+        }
+
+        .header-text {
+            color: $logo-color;
+        }
+
+        .sort-icon {
+            width: 20px;
+            text-align: right;
+            float: right;
+        }
+
+        i.fa-sort {
+            color: $light-grey;
+        }
+
+        i.fa-sort-up, i.fa-sort-down {
+            color: $logo-color;
+        }
     }
 
     tr:hover:not(th) {
         background: $highly-light-grey;
+        transition: 0.3s;
     }
 
     td {
         color: #666;
         font-size: 0.8rem;
     }
-
 }
 
+.pagination-section {
+    margin: 5px 0px;
+    width: 100%;
+    .showing-section {
+        font-size: 0.7rem;
+        color: $pagination-btn-text-color;
+        display: inline-block;
+        width: 220px;
+        padding-left: 5px;
+    }
+
+    .button-section { 
+        text-align: right;
+        float: right;
+    }
+
+    .btn-group-sm .btn {
+        font-size: 0.7rem;
+        padding: 6px 12px;
+        border: 1px solid $pagination-btn-border-color;
+        color: $pagination-btn-text-color;
+    }
+
+    .btn-group-sm .btn:hover:not(.btn-active) {
+        background: $very-light-grey;
+        transition: 0.3s;
+    }
+
+    .btn-active {
+        background: $logo-color;
+        color: #FFF !important;
+        cursor: auto;
+    }
+
+    .btn-disabled {
+        cursor: not-allowed;
+    }
+
+    .btn-disabled:hover {
+        background: #FFF !important;        
+    }
+}
+
+button.show-entries {
+    font-size: 0.7rem;
+    margin-left: -5px;
+    padding: 7px 10px;
+    border: 1px solid $pagination-btn-border-color;
+    cursor: pointer;
+    background: #FFF;
+    @include round-border(3px);
+    color: $pagination-btn-text-color;
+
+    i {
+        margin-left: 10px;
+        font-size: 0.6rem;
+        color: $logo-color;
+    }
+}
+
+.search-input {
+    font-size: 0.7rem;
+    padding: 7px 10px;
+    border: 1px solid $pagination-btn-border-color;
+    @include round-border(3px);
+}
+
+.drop-down-items {
+    position: absolute;
+    background: #FFF;
+    border: 1px solid $pagination-btn-border-color;
+    z-index: 500;
+    @include round-border(3px);
+    transition: 0.3s;
+    padding: 0;
+    margin-top: 2px;
+    margin-left: -5px;
+    ul {
+        list-style: none;
+        margin: 0;
+
+        li {
+            padding: 7px 10px;
+            cursor: pointer;
+            width: 131px;
+        }
+
+        li:not(:last-child) {
+            border-bottom: 1px solid $pagination-btn-border-color;
+        }
+
+        li:hover {
+            background: $highly-light-grey;
+            transition: 0.3s;
+        }
+    }
+}
+
+button.show-entries:hover {
+    background: $highly-light-grey;
+    transition: 0.3s;
+}

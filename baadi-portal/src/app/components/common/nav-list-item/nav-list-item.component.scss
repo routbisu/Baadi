@@ -18,7 +18,7 @@ div.nav-list-child-condensed {
   transition: 0.4s;
 
   .sub-menu-header {
-    background: $logo-orange;
+    background: $logo-color;
     padding: 9px 15px;
     font-size: 0.8rem;
     color: #fff;
@@ -28,7 +28,7 @@ div.nav-list-child-condensed {
     list-style: none;
     border-left: none;
     li {
-      color: $logo-orange;
+      color: $logo-color;
       font-size: 0.8rem;
       cursor: pointer;
       padding: 10px 15px;

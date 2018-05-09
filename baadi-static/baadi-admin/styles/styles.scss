@@ -3,8 +3,8 @@
 // Color variables
 $primary-color: #333;
 $primary-color-light: #999;
-$logo-orange: #EE3B24; 
-$logo-orange-light: #FBCCC6;
+$logo-color: #EE3B24; 
+$logo-color-light: #FBCCC6;
 $light-grey: #DDD;
 $very-light-grey: #EAEAEA;
 $highly-light-grey: #F9F9F9;
@@ -103,7 +103,7 @@ $admin-left-nav-width: 270px;
   outline-width: 0;
   outline-style:none;
   box-shadow:none;
-  border-color: $logo-orange-light;
+  border-color: $logo-color-light;
 }
 
 .form-group > label {
@@ -115,7 +115,7 @@ $admin-left-nav-width: 270px;
 .btn-login {
   width: 100%;
   padding: 10px 12px;
-  background: $logo-orange;
+  background: $logo-color;
   color: #FFF;
   font-size: 0.9rem;
   margin: 10px 0px;
@@ -200,7 +200,7 @@ body {
 
   .hamburger i {
     font-size: 1.5rem;
-    color: $logo-orange;
+    color: $logo-color;
     cursor: pointer;
     padding: 16px;
     padding-left: 22px;
@@ -225,7 +225,7 @@ body {
     }
 
     .global-search {
-      color: $logo-orange;
+      color: $logo-color;
       font-size: 0.9rem;
       cursor: pointer;
       border: 1px solid $very-light-grey;
@@ -234,7 +234,7 @@ body {
       margin-right: 20px;
 
       i {
-        color: $logo-orange;
+        color: $logo-color;
         margin: 0px 10px;
         font-size: 13px;
       }
@@ -248,7 +248,7 @@ body {
     .notification-numbers {
       position: relative;
       font-size: 0.55rem;
-      background: $logo-orange;
+      background: $logo-color;
       padding: 2px 5px;
       border-radius: 50%;
       color: #FFF;
@@ -261,14 +261,14 @@ body {
     display: inline-block;
     cursor: pointer;
     font-size: 0.85rem;
-    color: $logo-orange;
+    color: $logo-color;
 
     img {
       margin-right: 5px;
     }
 
     i {
-      color: $logo-orange;
+      color: $logo-color;
       width: 5px;
       margin-left: 5px;
     }
@@ -285,7 +285,7 @@ body {
 }
 
 .page-heading {
-  color: $logo-orange;
+  color: $logo-color;
   font-size: 1.3rem;
   font-weight: 600;
 
@@ -332,7 +332,7 @@ nav.nav-left {
   }
 
   i.fas {
-    color: $logo-orange;
+    color: $logo-color;
     margin: 8px;
   }
 }
@@ -348,7 +348,7 @@ nav.nav-left {
 
   i {
     font-size: 1.2rem;
-    color: $logo-orange;
+    color: $logo-color;
   }
 
   .col {
@@ -362,11 +362,11 @@ nav.nav-left {
   padding: 10px 10px 10px 15px;
   background: #FFF;
   border-radius: 3px;
-  color: $logo-orange;
+  color: $logo-color;
   font-size: 0.8rem;
 
   i {
-    color: $logo-orange;
+    color: $logo-color;
   }
 }
 
@@ -411,12 +411,12 @@ nav.nav-left {
 
   .nav-list-item {
     cursor: pointer;
-    color: $logo-orange;
+    color: $logo-color;
     font-size: 1.2rem;
     margin: 10px 0px;
 
     i {
-      color: $logo-orange;
+      color: $logo-color;
       margin-right: 10px;
       font-size: 22px;
     }
@@ -427,7 +427,7 @@ nav.nav-left {
   list-style: none;
   padding-left: 32px;
   .nav-list-child-item {
-    color: $logo-orange;
+    color: $logo-color;
     font-size: 1.2rem;
     margin: 5px 0px;
     cursor: pointer;
