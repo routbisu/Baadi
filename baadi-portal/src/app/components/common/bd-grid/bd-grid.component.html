@@ -1,14 +1,12 @@
 <div class="pagination-section">
   <div class="showing-section">
-    <button type="button" class="show-entries">Show 20 Entries
+    <button type="button" class="show-entries" (click)="togglePageSizeOptionsMenu()">
+      Show {{ selectedPageSize }} Entries
       <i class="fas fa-chevron-down"></i>
     </button>
-    <div class="drop-down-items" hidden>
+    <div class="drop-down-items" *ngIf="isPageSizeOptionsVisible">
       <ul>
-        <li>Show 10 Entries</li>
-        <li>Show 25 Entries</li>
-        <li>Show 50 Entries</li>
-        <li>Show 100 Entries</li>
+        <li *ngFor="let pageSize of pageSizeOptions">Show {{ pageSize }} Entries</li>
       </ul>
     </div>
   </div>

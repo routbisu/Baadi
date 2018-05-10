@@ -12,7 +12,7 @@ export class BdGridComponent implements OnInit {
   @Input() colDefs: ColumnDef[];
   @Input() sortable = true;
   @Input() pageSizeOptions = [ 10, 25, 50, 100 ];
-  @Input() defaultPageSize = this.pageSizeOptions[0]; // 10
+  @Input() defaultPageSize: number; // 10
   @Input() striped = true;
   @Input() clickable = false;
   // Field value that is emitted when a row is clicked
@@ -21,10 +21,19 @@ export class BdGridComponent implements OnInit {
   @Input() rowClickEmitField: string;
   @Output() rowClick = new EventEmitter<any>();
 
+  selectedPageSize: number;
+  isPageSizeOptionsVisible: boolean;
+
   constructor() { }
 
   ngOnInit() {
     // Show data in grid
+    this.selectedPageSize = this.pageSizeOptions[0];
+    this.isPageSizeOptionsVisible = false;
+  }
+
+  togglePageSizeOptionsMenu() {
+    this.isPageSizeOptionsVisible = !this.isPageSizeOptionsVisible;
   }
 
   // Render column data for each row
