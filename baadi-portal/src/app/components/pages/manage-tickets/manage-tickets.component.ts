@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
+import { ColumnDef } from '../../../models/column-def';
 
 @Component({
   selector: 'app-manage-tickets',
@@ -8,24 +9,44 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class ManageTicketsComponent implements OnInit {
 
-  columnDefs = [
-    { headerName: 'Date', field: 'date' },
-    { headerName: 'Subject', field: 'subject' },
-    { headerName: 'Status', field: 'status'},
-    { headerName: 'Assigned To', field: 'assigned'}
-  ];
-
-  rowData = [
-    { date: '08-May-2018', subject: 'Leaking Water', status: 'pending', assigned: 'Raghu S' },
-    { date: '08-May-2018', subject: 'Leaking Water', status: 'pending', assigned: 'Raghu S' },
-    { date: '08-May-2018', subject: 'Leaking Water', status: 'pending', assigned: 'Raghu S' },
-    { date: '08-May-2018', subject: 'Leaking Water', status: 'pending', assigned: 'Raghu S' }
-  ];
+  columnDefs: ColumnDef[];
+  rowData: any[];
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
     console.log('isAuth', this.authService._isAuthenticated);
+
+    this.columnDefs = [
+      { headerText: 'Ticket #', fieldName: 'TicketNumber' },
+      { headerText: 'Title' },
+      { headerText: 'Description', clipLength: 30 },
+      { headerText: 'Assignee' },
+      { headerText: 'Date Raised', fieldName: 'RaisedDate' },
+      { headerText: 'Status' },
+      { headerText: 'Completed Date', fieldName: 'CompletedDate' }
+    ];
+
+    this.rowData = [
+      { TicketNumber: 'SEL000001', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000002', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000003', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000004', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000005', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000006', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000007', Title: 'Leaking Water', Description: 'Water is leaking.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000008', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000009', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000010', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000011', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000012', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000013', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000014', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000015', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000016', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000017', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber: 'SEL000018', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null }
+    ];
   }
 
 }

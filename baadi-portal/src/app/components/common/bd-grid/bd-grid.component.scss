@@ -19,10 +19,10 @@ table {
     th {
         cursor: pointer;
         background: $highly-light-grey;
-        white-space: nowrap;
+        white-space: nowrap !important;
 
         .header-text, .sort-icon {
-            display: inline-block;
+            display: table-cell;
         }
 
         i {
@@ -36,7 +36,6 @@ table {
         .sort-icon {
             width: 20px;
             text-align: right;
-            float: right;
         }
 
         i.fa-sort {
@@ -49,13 +48,28 @@ table {
     }
 
     tr:hover:not(th) {
-        background: $highly-light-grey;
+        background: $highly-light-grey !important;
         transition: 0.3s;
     }
 
     td {
         color: #666;
         font-size: 0.8rem;
+    }
+}
+
+.table-striped {
+    tr:nth-child(odd) {
+        background: #FFF;
+    }
+    tr:nth-child(even) {
+        background: $highly-light-grey;
+    }
+}
+
+table.table-clickable {
+    tbody tr {
+        cursor: pointer;
     }
 }
 
@@ -66,7 +80,6 @@ table {
         font-size: 0.7rem;
         color: $pagination-btn-text-color;
         display: inline-block;
-        width: 220px;
         padding-left: 5px;
     }
 
@@ -160,4 +173,19 @@ button.show-entries {
 button.show-entries:hover {
     background: $highly-light-grey;
     transition: 0.3s;
+}
+
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 350px) {
+    .pagination-section {
+        .button-section, .showing-section {
+            width: 100%;
+            display: block;
+            margin-top: 10px;
+        }
+    }
 }

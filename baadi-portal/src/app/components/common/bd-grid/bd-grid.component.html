@@ -17,81 +17,25 @@
   </div>
 </div>
 <div class="table-responsive">
-  <table class="table table-condensed">
-    <tr>
-      <th>
-        <div class="header-text">Ticket #</div>
-        <div class="sort-icon">
-          <i class="fas fa-sort"></i>
-        </div>
-      </th>
-      <th>
-        <div class="header-text">Subject</div>
-        <div class="sort-icon">
-          <i class="fas fa-sort-up"></i>
-        </div>
-      </th>
-      <th>
-        <div class="header-text">Department</div>
-        <div class="sort-icon">
-          <i class="fas fa-sort"></i>
-        </div>
-      </th>
-      <th>
-        <div class="header-text">Assigned To</div>
-        <div class="sort-icon">
-          <i class="fas fa-sort"></i>
-        </div>
-      </th>
-      <th>
-        <div class="header-text">Status</div>
-        <div class="sort-icon">
-          <i class="fas fa-sort"></i>
-        </div>
-      </th>
-    </tr>
-    <tr>
-      <td>SEL10002 </td>
-      <td style="min-width: 100px;">Leaking Watertap</td>
-      <td>Plumbing</td>
-      <td>Roy Vivek</td>
-      <td>Pending</td>
-    </tr>
-    <tr>
-      <td>SEL10002</td>
-      <td>Leaking-Watertap-really-long-and-very-long </td>
-      <td>Plumbing</td>
-      <td>Roy Vivek</td>
-      <td>Pending</td>
-    </tr>
-    <tr>
-      <td>SEL10002</td>
-      <td>Leaking Watertap</td>
-      <td>Plumbing</td>
-      <td>Roy Vivek</td>
-      <td>Pending</td>
-    </tr>
-    <tr>
-      <td>SEL10002</td>
-      <td>Leaking Watertap</td>
-      <td>Plumbing</td>
-      <td>Roy Vivek</td>
-      <td>Pending</td>
-    </tr>
-    <tr>
-      <td>SEL10002</td>
-      <td>Leaking Watertap</td>
-      <td>Plumbing</td>
-      <td>Roy Vivek</td>
-      <td>Pending</td>
-    </tr>
-    <tr>
-      <td>SEL10002</td>
-      <td>Leaking Watertap</td>
-      <td>Plumbing</td>
-      <td>Roy Vivek</td>
-      <td>Pending</td>
-    </tr>
+  <table class="table table-condensed" [ngClass]="{ 'table-striped' : striped, 'table-clickable': clickable }">
+    <thead>
+      <tr>
+        <th *ngFor="let colDef of colDefs">
+          <div class="flex-space-between">
+            <div class="header-text">{{ colDef.headerText }}</div>
+            <div class="sort-icon">
+              <i class="fas fa-sort"></i>
+            </div>
+          </div>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let row of data">
+        <td *ngFor="let colDef of colDefs">{{ renderColumnData(row, colDef) }}</td>
+      </tr>
+    </tbody>
   </table>
 </div>
 <div class="pagination-section">
@@ -105,6 +49,7 @@
       <button type="button" class="btn btn-outline-primary">2</button>
       <button type="button" class="btn btn-outline-primary">3</button>
       <button type="button" class="btn btn-outline-primary">4</button>
+      <button type="button" class="btn btn-outline-primary">5</button>
       <button type="button" class="btn btn-outline-primary">5</button>
       <button type="button" class="btn btn-outline-primary btn-disabled">Next</button>
     </div>
