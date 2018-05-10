@@ -17,6 +17,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { RaiseTicketComponent } from './components/pages/raise-ticket/raise-ticket.component';
 import { ManageTicketsComponent } from './components/pages/manage-tickets/manage-tickets.component';
 import { BdGridComponent } from './components/common/bd-grid/bd-grid.component';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
 
 // List of routes used in the application
 const appRoutes = [
@@ -48,7 +49,8 @@ const appRoutes = [
     HomeComponent,
     RaiseTicketComponent,
     ManageTicketsComponent,
-    BdGridComponent
+    BdGridComponent,
+    ClickOutsideDirective
   ],
   imports: [
     BrowserModule,

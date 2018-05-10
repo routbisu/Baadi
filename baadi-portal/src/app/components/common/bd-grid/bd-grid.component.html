@@ -1,5 +1,5 @@
 <div class="pagination-section">
-  <div class="showing-section">
+  <div class="showing-section" (clickOutside)="closePageSizeOptions()">
     <button type="button" class="show-entries" (click)="togglePageSizeOptionsMenu()">
       Show {{ selectedPageSize }} Entries
       <i class="fas fa-chevron-down"></i>

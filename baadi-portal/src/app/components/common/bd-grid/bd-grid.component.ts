@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener, ElementRef } from '@angular/core';
 import { ColumnDef } from '../../../models/column-def';
 
 @Component({
@@ -24,7 +24,7 @@ export class BdGridComponent implements OnInit {
   selectedPageSize: number;
   isPageSizeOptionsVisible: boolean;
 
-  constructor() { }
+  constructor(private el: ElementRef) { }
 
   ngOnInit() {
     // Show data in grid
@@ -34,6 +34,10 @@ export class BdGridComponent implements OnInit {
 
   togglePageSizeOptionsMenu() {
     this.isPageSizeOptionsVisible = !this.isPageSizeOptionsVisible;
+  }
+
+  closePageSizeOptions() {
+    this.isPageSizeOptionsVisible = false;
   }
 
   // Render column data for each row
@@ -54,5 +58,4 @@ export class BdGridComponent implements OnInit {
       this.rowClick.emit($event);
     }
   }
-
 }
