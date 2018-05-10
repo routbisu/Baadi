@@ -49,4 +49,8 @@ export class ManageTicketsComponent implements OnInit {
     ];
   }
 
+  openTicket(value) {
+    console.log('Open ticket', value);
+  }
+
 }

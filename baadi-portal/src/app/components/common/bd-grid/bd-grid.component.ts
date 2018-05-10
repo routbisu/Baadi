@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ColumnDef } from '../../../models/column-def';
 
 @Component({
@@ -18,7 +18,8 @@ export class BdGridComponent implements OnInit {
   // Field value that is emitted when a row is clicked
   // Ignored if clickable is set to false
   // Throws error if clickable is set to true and value is not provided
-  @Input() rowClickEmitField: any;
+  @Input() rowClickEmitField: string;
+  @Output() rowClick = new EventEmitter<any>();
 
   constructor() { }
 
@@ -36,6 +37,13 @@ export class BdGridComponent implements OnInit {
       }
     }
     return colData;
+  }
+
+  // Handle row click output event
+  rowClicked($event) {
+    if (this.clickable) {
+      this.rowClick.emit($event);
+    }
   }
 
 }

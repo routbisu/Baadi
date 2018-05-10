@@ -32,7 +32,7 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let row of data">
+      <tr *ngFor="let row of data" (click)="rowClicked(row[rowClickEmitField])">
         <td *ngFor="let colDef of colDefs">{{ renderColumnData(row, colDef) }}</td>
       </tr>
     </tbody>

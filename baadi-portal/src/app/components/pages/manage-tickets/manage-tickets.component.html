@@ -11,4 +11,11 @@
   >
 </ag-grid-angular> -->
 <!-- <ag-grid-angular [gridOptions]="gridOptions" class="ag-theme-material" style="height: 500px; width: 95%;"></ag-grid-angular> -->
-<app-bd-grid [colDefs]="columnDefs" [data]="rowData" [clickable]="true"></app-bd-grid>
+<app-bd-grid 
+  [colDefs]="columnDefs" 
+  [data]="rowData" 
+  [clickable]="true" 
+  (rowClick)="openTicket($event)"
+  [rowClickEmitField]="'TicketNumber'"
+>
+</app-bd-grid>
