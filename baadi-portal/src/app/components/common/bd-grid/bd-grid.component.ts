@@ -22,14 +22,27 @@ export class BdGridComponent implements OnInit {
   @Output() rowClick = new EventEmitter<any>();
 
   selectedPageSize: number;
+  selectedPageNumber: number;
   isPageSizeOptionsVisible: boolean;
+  fromPosition: number;
+  toPosition: number;
+  totalRows: number;
+  pageNumbers: number[];
+  prevBtnDisabled: boolean;
+  nextBtnDisabled: boolean;
+
+  visibleRows: any[];
 
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
     // Show data in grid
     this.selectedPageSize = this.pageSizeOptions[0];
+    this.selectedPageNumber = 1;
     this.isPageSizeOptionsVisible = false;
+    this.totalRows = this.data.length;
+
+    this.renderGrid();
   }
 
   togglePageSizeOptionsMenu() {
@@ -38,6 +51,66 @@ export class BdGridComponent implements OnInit {
 
   closePageSizeOptions() {
     this.isPageSizeOptionsVisible = false;
+  }
+
+  changePageSize(pageSize) {
+    this.selectedPageSize = pageSize;
+    this.selectedPageNumber = 1;
+    this.isPageSizeOptionsVisible = false;
+    // Change the number of records visible
+    this.renderGrid();
+  }
+
+  changePageNumber(pageNumber) {
+    this.selectedPageNumber = pageNumber;
+    this.renderGrid();
+  }
+
+  previousPage() {
+    if (!this.prevBtnDisabled) {
+      this.selectedPageNumber -= 1;
+      this.renderGrid();
+    }
+  }
+
+  nextPage() {
+    if (!this.nextBtnDisabled) {
+      this.selectedPageNumber += 1;
+      this.renderGrid();
+    }
+  }
+
+  /**
+   * Render the grid with sorting, pagination & page size
+   */
+  renderGrid() {
+    const startPos = (this.selectedPageNumber - 1) * this.selectedPageSize;
+    const endPos = startPos + this.selectedPageSize;
+    this.visibleRows = this.data.slice(startPos, endPos);
+
+    // Display items number and total items
+    this.fromPosition = startPos + 1;
+    this.toPosition = Math.min(endPos, this.totalRows);
+
+    // Show page number buttons
+    const numPages = Math.ceil(this.totalRows / this.selectedPageSize);
+    this.pageNumbers = [];
+    for (let i = 0; i < numPages; i++) {
+      this.pageNumbers.push(i + 1);
+    }
+
+    // Disable previous and next buttons for edge cases
+    if (this.selectedPageNumber === 1) {
+      this.prevBtnDisabled = true;
+    } else {
+      this.prevBtnDisabled = false;
+    }
+
+    if (this.selectedPageNumber === this.pageNumbers[this.pageNumbers.length - 1]) {
+      this.nextBtnDisabled = true;
+    } else {
+      this.nextBtnDisabled = false;
+    }
   }
 
   // Render column data for each row

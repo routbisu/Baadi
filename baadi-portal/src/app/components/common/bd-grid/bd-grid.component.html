@@ -6,7 +6,9 @@
     </button>
     <div class="drop-down-items" *ngIf="isPageSizeOptionsVisible">
       <ul>
-        <li *ngFor="let pageSize of pageSizeOptions">Show {{ pageSize }} Entries</li>
+        <li *ngFor="let pageSize of pageSizeOptions" (click)="changePageSize(pageSize)">
+          Show {{ pageSize }} Entries
+        </li>
       </ul>
     </div>
   </div>
@@ -30,7 +32,7 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let row of data" (click)="rowClicked(row[rowClickEmitField])">
+      <tr *ngFor="let row of visibleRows" (click)="rowClicked(row[rowClickEmitField])">
         <td *ngFor="let colDef of colDefs">{{ renderColumnData(row, colDef) }}</td>
       </tr>
     </tbody>
@@ -38,18 +40,29 @@
 </div>
 <div class="pagination-section">
   <div class="showing-section">
-    Showing 1 to 10 of 300 entries
+    Showing {{ fromPosition }} to {{ toPosition }} of {{ totalRows }} entries
   </div>
   <div class="button-section">
     <div class="btn-group btn-group-sm">
-      <button type="button" class="btn btn-outline-primary">Previous</button>
-      <button type="button" class="btn btn-outline-primary btn-active">1</button>
-      <button type="button" class="btn btn-outline-primary">2</button>
-      <button type="button" class="btn btn-outline-primary">3</button>
-      <button type="button" class="btn btn-outline-primary">4</button>
-      <button type="button" class="btn btn-outline-primary">5</button>
-      <button type="button" class="btn btn-outline-primary">5</button>
-      <button type="button" class="btn btn-outline-primary btn-disabled">Next</button>
+      <button type="button" 
+        class="btn btn-outline-primary" 
+        [ngClass]="{ 'btn-disabled': prevBtnDisabled }" 
+        (click)="previousPage()">
+        Previous
+      </button>
+      <button type="button" 
+        class="btn btn-outline-primary" 
+        [ngClass]="{ 'btn-active': pageNumber === selectedPageNumber }" 
+        *ngFor="let pageNumber of pageNumbers"
+        (click)="changePageNumber(pageNumber)">
+        {{ pageNumber }}
+      </button>
+      <button type="button" 
+        class="btn btn-outline-primary" 
+        (click)="nextPage()" 
+        [ngClass]="{ 'btn-disabled': nextBtnDisabled }">
+        Next
+      </button>
     </div>
   </div>
 </div>
