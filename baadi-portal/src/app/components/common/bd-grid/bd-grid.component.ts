@@ -30,17 +30,23 @@ export class BdGridComponent implements OnInit {
   pageNumbers: number[];
   prevBtnDisabled: boolean;
   nextBtnDisabled: boolean;
+  sortColFieldName: string;
+  sortColDirection: string; // A or D
 
   visibleRows: any[];
 
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
+
+    this.addMissingFieldNames();
+
     // Show data in grid
     this.selectedPageSize = this.pageSizeOptions[0];
     this.selectedPageNumber = 1;
     this.isPageSizeOptionsVisible = false;
     this.totalRows = this.data.length;
+    this.sortColDirection = 'A';
 
     this.renderGrid();
   }
@@ -123,6 +129,49 @@ export class BdGridComponent implements OnInit {
       }
     }
     return colData;
+  }
+
+  // Handle column sorting
+  toggleSort(colDef: ColumnDef) {
+    this.sortColFieldName = colDef.fieldName;
+    this.sortData();
+    this.sortColDirection = this.sortColDirection === 'A' ? 'D' : 'A';
+    // const colFieldName = colDef.fieldName || colDef.headerText;
+    // for (const col of this.colDefs) {
+    //   if (col.fieldName === colFieldName || col.headerText === colFieldName) {
+    //     if (col['sort']) {
+    //       col['sort'] === 'A' ? col['sort'] = 'D' : col['sort'] = 'A';
+    //     } else {
+    //       col['sort'] = 'A';
+    //     }
+    //   }
+    // }
+
+  }
+
+  /**
+   * Sort data based on column name and direction
+   */
+  sortData() {
+    if (this.sortColDirection === 'A') {
+      this.data.sort((a, b) => b[this.sortColFieldName] - a[this.sortColFieldName]);
+    } else {
+      this.data.sort((a, b) => a[this.sortColFieldName] - b[this.sortColFieldName]);
+    }
+    this.renderGrid();
+    console.log(this.data);
+  }
+
+  /**
+   * If fieldName is not provided for a column then it is assumed to be same as
+   * the headerText
+   */
+  addMissingFieldNames() {
+    for (const col of this.colDefs) {
+      if (!col['fieldName']) {
+        col['fieldName'] = col['headerText'];
+      }
+    }
   }
 
   // Handle row click output event

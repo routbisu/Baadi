@@ -20,11 +20,13 @@
   <table class="table table-condensed" [ngClass]="{ 'table-striped' : striped, 'table-clickable': clickable }">
     <thead>
       <tr>
-        <th *ngFor="let colDef of colDefs">
+        <th *ngFor="let colDef of colDefs" (click)="toggleSort(colDef)">
           <div class="flex-space-between">
             <div class="header-text">{{ colDef.headerText }}</div>
             <div class="sort-icon">
-              <i class="fas fa-sort"></i>
+              <i class="fas fa-sort" *ngIf="sortColFieldName !== colDef.fieldName"></i>
+              <i class="fas fa-sort-up" *ngIf="sortColFieldName === colDef.fieldName && sortColDirection === 'A'"></i>
+              <i class="fas fa-sort-down" *ngIf="sortColFieldName === colDef.fieldName && sortColDirection === 'D'"></i>
             </div>
           </div>
         </th>
