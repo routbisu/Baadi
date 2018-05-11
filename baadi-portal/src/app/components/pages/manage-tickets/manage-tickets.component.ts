@@ -29,7 +29,7 @@ export class ManageTicketsComponent implements OnInit {
 
     this.rowData = [
       { TicketNumber: 'SEL000001', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
-      { TicketNumber: 'SEL000002', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
+      { TicketNumber1: 'SEL000002', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
       { TicketNumber: 'SEL000003', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
       { TicketNumber: 'SEL000004', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },
       { TicketNumber: 'SEL000005', Title: 'Leaking Water', Description: 'Water is leaking from the tap in our balcony. Please fix it soon.', Assignee: 'Raghu S', RaisedDate: '11-May-2018', Status: 'Pending', CompletedDate: null },

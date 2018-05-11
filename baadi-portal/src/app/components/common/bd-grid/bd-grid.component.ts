@@ -121,7 +121,7 @@ export class BdGridComponent implements OnInit {
 
   // Render column data for each row
   renderColumnData(row: any, colDef: ColumnDef) {
-    let colData = row[colDef.fieldName || colDef.headerText] || 'NA';
+    let colData = row[colDef.fieldName];
     // Handle text clipping
     if (colDef.clipLength && colDef.clipLength > 0) {
       if (colDef.clipLength < colData.length) {
@@ -144,9 +144,9 @@ export class BdGridComponent implements OnInit {
   sortData() {
     this.data.sort((a, b) => {
       if (this.sortColDirection === 'A') {
-        return a[this.sortColFieldName].localeCompare(b[this.sortColFieldName]);
+        return (a[this.sortColFieldName] || '').localeCompare(b[this.sortColFieldName] || '');
       } else {
-        return b[this.sortColFieldName].localeCompare(a[this.sortColFieldName]);
+        return (b[this.sortColFieldName] || '').localeCompare(a[this.sortColFieldName] || '');
       }
     });
     this.renderGrid();
