@@ -46,7 +46,7 @@ export class BdGridComponent implements OnInit {
     this.selectedPageNumber = 1;
     this.isPageSizeOptionsVisible = false;
     this.totalRows = this.data.length;
-    this.sortColDirection = 'A';
+    this.sortColDirection = 'D';
 
     this.renderGrid();
   }
@@ -134,32 +134,22 @@ export class BdGridComponent implements OnInit {
   // Handle column sorting
   toggleSort(colDef: ColumnDef) {
     this.sortColFieldName = colDef.fieldName;
-    this.sortData();
     this.sortColDirection = this.sortColDirection === 'A' ? 'D' : 'A';
-    // const colFieldName = colDef.fieldName || colDef.headerText;
-    // for (const col of this.colDefs) {
-    //   if (col.fieldName === colFieldName || col.headerText === colFieldName) {
-    //     if (col['sort']) {
-    //       col['sort'] === 'A' ? col['sort'] = 'D' : col['sort'] = 'A';
-    //     } else {
-    //       col['sort'] = 'A';
-    //     }
-    //   }
-    // }
-
+    this.sortData();
   }
 
   /**
    * Sort data based on column name and direction
    */
   sortData() {
-    if (this.sortColDirection === 'A') {
-      this.data.sort((a, b) => b[this.sortColFieldName] - a[this.sortColFieldName]);
-    } else {
-      this.data.sort((a, b) => a[this.sortColFieldName] - b[this.sortColFieldName]);
-    }
+    this.data.sort((a, b) => {
+      if (this.sortColDirection === 'A') {
+        return a[this.sortColFieldName].localeCompare(b[this.sortColFieldName]);
+      } else {
+        return b[this.sortColFieldName].localeCompare(a[this.sortColFieldName]);
+      }
+    });
     this.renderGrid();
-    console.log(this.data);
   }
 
   /**
