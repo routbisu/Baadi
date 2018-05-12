@@ -34,6 +34,7 @@ export class BdGridComponent implements OnInit {
   nextBtnDisabled: boolean;
   sortColFieldName: string;
   sortColDirection: string; // A or D
+  searchDisabledFields: string[];
 
   visibleRows: any[];
 
@@ -53,6 +54,35 @@ export class BdGridComponent implements OnInit {
     this.sortColDirection = 'D';
 
     this.renderGrid();
+
+    // Add search disabled fields
+    this.searchDisabledFields = this.getNotSearchableFields();
+
+  }
+
+  /**
+   * If fieldName is not provided for a column then it is assumed to be same as
+   * the headerText
+   */
+  private addMissingFieldNames() {
+    for (const col of this.colDefs) {
+      if (!col['fieldName']) {
+        col['fieldName'] = col['headerText'];
+      }
+    }
+  }
+
+  /**
+   * Get fields which are not searchable
+   */
+  private getNotSearchableFields() {
+    const searchDisabledFields = [];
+    for (const colDef of this.colDefs) {
+      if (colDef.notSearchable) {
+        searchDisabledFields.push(colDef.fieldName);
+      }
+    }
+    return searchDisabledFields;
   }
 
   togglePageSizeOptionsMenu() {
@@ -159,18 +189,6 @@ export class BdGridComponent implements OnInit {
   }
 
   /**
-   * If fieldName is not provided for a column then it is assumed to be same as
-   * the headerText
-   */
-  addMissingFieldNames() {
-    for (const col of this.colDefs) {
-      if (!col['fieldName']) {
-        col['fieldName'] = col['headerText'];
-      }
-    }
-  }
-
-  /**
    * Search grid
    */
   searchGrid(event: any) {
@@ -181,9 +199,12 @@ export class BdGridComponent implements OnInit {
       for (const record of this.dataBackup) {
         let dataFound = false;
         for (const columnName in record) {
-          if (record[columnName]) {
-            if (record[columnName].toLowerCase().includes(searchText.toLowerCase())) {
-              dataFound = true;
+          // Check if column is searchable
+          if (_.indexOf(this.searchDisabledFields, columnName) === -1) {
+            if (record[columnName]) {
+              if (record[columnName].toLowerCase().includes(searchText.toLowerCase())) {
+                dataFound = true;
+              }
             }
           }
         }

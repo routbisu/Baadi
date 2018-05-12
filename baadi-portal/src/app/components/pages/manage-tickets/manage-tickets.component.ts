@@ -20,7 +20,7 @@ export class ManageTicketsComponent implements OnInit {
     this.columnDefs = [
       { headerText: 'Ticket #', fieldName: 'TicketNumber' },
       { headerText: 'Title' },
-      { headerText: 'Description', clipLength: 40 },
+      { headerText: 'Description', clipLength: 40, notSearchable: true },
       { headerText: 'Assignee' },
       { headerText: 'Date Raised', fieldName: 'RaisedDate' },
       { headerText: 'Status' },
