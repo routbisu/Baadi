@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener, ElementRef } from '@angular/core';
 import { ColumnDef } from '../../../models/column-def';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-bd-grid',
@@ -21,6 +22,7 @@ export class BdGridComponent implements OnInit {
   @Input() rowClickEmitField: string;
   @Output() rowClick = new EventEmitter<any>();
 
+  dataBackup: any[];
   selectedPageSize: number;
   selectedPageNumber: number;
   isPageSizeOptionsVisible: boolean;
@@ -40,6 +42,8 @@ export class BdGridComponent implements OnInit {
   ngOnInit() {
 
     this.addMissingFieldNames();
+
+    this.dataBackup = this.data;
 
     // Show data in grid
     this.selectedPageSize = this.pageSizeOptions[0];
@@ -95,6 +99,7 @@ export class BdGridComponent implements OnInit {
     this.visibleRows = this.data.slice(startPos, endPos);
 
     // Display items number and total items
+    this.totalRows = this.data.length;
     this.fromPosition = startPos + 1;
     this.toPosition = Math.min(endPos, this.totalRows);
 
@@ -124,9 +129,10 @@ export class BdGridComponent implements OnInit {
     let colData = row[colDef.fieldName];
     // Handle text clipping
     if (colDef.clipLength && colDef.clipLength > 0) {
-      if (colDef.clipLength < colData.length) {
-        colData = colData.substring(0, colDef.clipLength) + ' ...';
-      }
+      colData = _.truncate(colData, {
+        'length': colDef.clipLength,
+        'omission': ' ...'
+      });
     }
     return colData;
   }
@@ -162,6 +168,33 @@ export class BdGridComponent implements OnInit {
         col['fieldName'] = col['headerText'];
       }
     }
+  }
+
+  /**
+   * Search grid
+   */
+  searchGrid(event: any) {
+    const searchText = event.target.value;
+    console.log(searchText);
+    if (searchText && _.trim(searchText) !== '') {
+      this.data = [];
+      for (const record of this.dataBackup) {
+        let dataFound = false;
+        for (const columnName in record) {
+          if (record[columnName]) {
+            if (record[columnName].toLowerCase().includes(searchText.toLowerCase())) {
+              dataFound = true;
+            }
+          }
+        }
+        if (dataFound) {
+          this.data.push(record);
+        }
+      }
+    } else {
+      this.data = this.dataBackup;
+    }
+    this.renderGrid();
   }
 
   // Handle row click output event
