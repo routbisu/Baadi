@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('isAuth', this.authService._isAuthenticated);
   }
 
 }

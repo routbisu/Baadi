@@ -15,7 +15,6 @@ export class ManageTicketsComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    console.log('isAuth', this.authService._isAuthenticated);
 
     this.columnDefs = [
       { headerText: 'Ticket #', fieldName: 'TicketNumber' },

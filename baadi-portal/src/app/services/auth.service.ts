@@ -13,7 +13,6 @@ export class AuthService {
 
   // Flag to denote if an user is authenticated
   public _isAuthenticated: boolean;
-  private _timeoutHandle;
 
   constructor(private http: Http, private router: Router) {
   }
