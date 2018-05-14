@@ -169,9 +169,11 @@ export class BdGridComponent implements OnInit {
 
   // Handle column sorting
   toggleSort(colDef: ColumnDef) {
-    this.sortColFieldName = colDef.fieldName;
-    this.sortColDirection = this.sortColDirection === 'A' ? 'D' : 'A';
-    this.sortData();
+    if (!colDef.notSortable) {
+      this.sortColFieldName = colDef.fieldName;
+      this.sortColDirection = this.sortColDirection === 'A' ? 'D' : 'A';
+      this.sortData();
+    }
   }
 
   /**

@@ -25,7 +25,7 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to Baadi Android App.
         </Text>
         <Text style={styles.instructions}>
           To get started, edit App.js
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
+    color: '#000',
     marginBottom: 5,
   },
 });

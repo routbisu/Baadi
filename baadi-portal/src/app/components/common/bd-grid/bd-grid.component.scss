@@ -180,6 +180,10 @@ button.show-entries:hover {
     justify-content: space-between;
 }
 
+.no-cursor {
+    cursor: auto !important;
+}
+
 @media (max-width: 350px) {
     .pagination-section {
         .button-section, .showing-section {
