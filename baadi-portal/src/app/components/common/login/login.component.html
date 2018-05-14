@@ -23,8 +23,13 @@
         <div class="error-message margin-t--10" *ngIf="errorMessageText">
           <i class="fas fa-exclamation-circle"></i>{{ errorMessageText }}
         </div>
-        <button type="submit" class="btn btn-login btn-success">
-          <i class="fa fa-lock"></i> Login Securely
+        <ng-template #isLoading>
+          <button type="submit" class="btn btn-login btn-success">
+            <i class="fa fa-lock"></i> Login Securely
+          </button>
+        </ng-template>        
+        <button type="submit" class="btn btn-login btn-loader" *ngIf="isProcessing; else isLoading">
+          <img [src]="imageUrls.loader" alt="Baadi logo">
         </button>
       </form>
       <div class="or-separator">- or -</div>
@@ -50,13 +55,10 @@
     <div class="login-logo-image-light d-block">
       <img [src]="imageUrls.logo" alt="">
     </div>
-    <!-- <div class="login-logo-desc-text-container">
+    <div class="login-logo-desc-text-container" hidden>
       <div class="login-logo-desc-text">
-        Baadi is a simple to use, cloud based apartment management system for small apartment complexes. It automates manual data
-        entry tasks like visitor entry, helpdesk services, amenities management, and several other services. It also provides
-        a web based analytics portal for viewing visitor traffic, helpdesk requests, and data about other security related
-        actions.
+        &copy; Baadi.in 2018
       </div>
-    </div> -->
+    </div>
   </div>
 </div>

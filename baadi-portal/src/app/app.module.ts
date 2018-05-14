@@ -18,15 +18,16 @@ import { RaiseTicketComponent } from './components/pages/raise-ticket/raise-tick
 import { ManageTicketsComponent } from './components/pages/manage-tickets/manage-tickets.component';
 import { BdGridComponent } from './components/common/bd-grid/bd-grid.component';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
+import { AuthGuard } from './guards/auth.guard';
 
 // List of routes used in the application
 const appRoutes = [
   // Home Page
-  { path: '', component: HomeComponent, data: { breadcrumb: 'Home' } },
+  { path: '', component: HomeComponent, data: { breadcrumb: 'Home' }, canActivate: [ AuthGuard ] },
   // Login Page
   { path: 'login', component: LoginComponent },
   // Helpdesk
-  { path: 'tickets', data: { breadcrumb: 'Helpdesk' },
+  { path: 'tickets', data: { breadcrumb: 'Helpdesk' }, canActivate: [ AuthGuard ],
     children: [
       // Add a new apartment
       { path: 'raise', component: RaiseTicketComponent, data: { breadcrumb: 'Raise Ticket' } },
@@ -61,7 +62,8 @@ const appRoutes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

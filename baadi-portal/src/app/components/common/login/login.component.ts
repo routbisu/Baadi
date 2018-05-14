@@ -12,12 +12,14 @@ export class LoginComponent {
   invalidEmail = false;
   invalidPassword = false;
   errorMessageText = null;
+  isProcessing = false;
 
   imageUrls: any = {
     icon: 'assets/images/icon-72.png',
     android: 'assets/images/android.svg',
     apple: 'assets/images/apple.svg',
-    logo: 'assets/images/logo-bg.png'
+    logo: 'assets/images/logo-bg.png',
+    loader: 'assets/images/loader-ellipsis.svg'
   };
 
   constructor(
@@ -54,7 +56,11 @@ export class LoginComponent {
 
   emailLogin(value) {
     if (this.performValidation(value)) {
+      // Show loader
+      this.isProcessing = true;
       this.authService.emailLogin(value).subscribe(data => {
+        // Hide loader
+        this.isProcessing = false;
         if (data.ErrorMessage) {
           switch (data.ErrorMessage) {
             case 'USER_NOT_FOUND':
@@ -67,7 +73,15 @@ export class LoginComponent {
         } else {
           // Successful login
           this.authService.saveToken(data);
-          this.router.navigateByUrl('');
+          // Start refresh token timer
+          this.authService.refreshToken();
+
+          let homeUrl = '';
+          if (localStorage.getItem('__returnUrl')) {
+            homeUrl = localStorage.getItem('__returnUrl');
+            localStorage.removeItem('__returnUrl');
+          }
+          this.router.navigateByUrl(homeUrl);
         }
       });
     }
